@@ -79,6 +79,10 @@ function receivedMessage(event) {
         sendGenericMessage(senderID);
         break;
 
+      case 'hello':
+        sendHelloWorld(senderID);
+        break;
+
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -141,6 +145,19 @@ function sendTextMessage(recipientId, messageText) {
     },
     message: {
       text: messageText
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendTextMessage(recipientId, messageText) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Hello World!"
     }
   };
 
