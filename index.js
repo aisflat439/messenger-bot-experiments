@@ -151,7 +151,7 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-function sendTextMessage(recipientId, messageText) {
+function sendHelloWorld(recipientId, messageText) {
   var messageData = {
     recipient: {
       id: recipientId
