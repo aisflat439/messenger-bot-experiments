@@ -1,0 +1,26 @@
+{
+  "name": "sample_bot",
+  "version": "1.0.0",
+  "description": "Sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "add later"
+  },
+  "keywords": [
+    "facebook",
+    "messenger",
+    "bot",
+    "heroku"
+  ],
+  "author": "Devin Fitzsimons",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.79.0"
+  }
+}
