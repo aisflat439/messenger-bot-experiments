@@ -162,14 +162,20 @@ function sendDoggo(recipientId) {
     },
     message: {
       attachment: {
-        type: "image",
+        type: "template",
         payload: {
-          title: "DOGGO!",
-          subtitle: "the best pets",
-          url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
+          template_type: "generic",
+          elements: [{
+            title: "DOGGO!",
+            subtitle: "the best pets",
+            url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
+          },{
+            title: "Still!",
+            subtitle: "the best pets",
+            url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
+          }]
         }
       }
-      text: "OMGDOGGO!"
     }
   };
 
