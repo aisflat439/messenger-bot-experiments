@@ -83,9 +83,9 @@ function receivedMessage(event) {
         sendHelloWorld(senderID);
         break;
 
-      case 'puppers':
-        sendDoggo(senderID);
-        break;
+      // case 'puppers':
+      //   sendDoggo(senderID);
+      //   break;
 
       default:
         sendTextMessage(senderID, messageText);
@@ -155,32 +155,32 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-function sendDoggo(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "DOGGO!",
-            subtitle: "the best pets",
-            url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
-          },{
-            title: "Still!",
-            subtitle: "the best pets",
-            url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
-          }]
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);
-}
+// function sendDoggo(recipientId) {
+//   var messageData = {
+//     recipient: {
+//       id: recipientId
+//     },
+//     message: {
+//       attachment: {
+//         type: "template",
+//         payload: {
+//           template_type: "generic",
+//           elements: [{
+//             title: "DOGGO!",
+//             subtitle: "the best pets",
+//             url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
+//           },{
+//             title: "Still!",
+//             subtitle: "the best pets",
+//             url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
+//           }]
+//         }
+//       }
+//     }
+//   };
+//
+//   callSendAPI(messageData);
+// }
 
 function sendHelloWorld(recipientId) {
   var messageData = {
