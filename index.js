@@ -155,26 +155,26 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-// function sendDoggo(recipientId) {
-//   var messageData = {
-//     recipient: {
-//       id: recipientId
-//     },
-//     message: {
-//       attachment: {
-//         type: "image",
-//         payload: {
-//           title: "DOGGO!",
-//           subtitle: "the best pets",
-//           url: "https://goo.gl/photos/MSqbn49zLDsHMRkY7"
-//         }
-//       }
-//       text: "OMGDOGGO!"
-//     }
-//   };
-//
-//   callSendAPI(messageData);
-// }
+function sendDoggo(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          title: "DOGGO!",
+          subtitle: "the best pets",
+          url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
+        }
+      }
+      text: "OMGDOGGO!"
+    }
+  };
+
+  callSendAPI(messageData);
+}
 
 function sendHelloWorld(recipientId) {
   var messageData = {
