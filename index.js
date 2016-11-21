@@ -83,6 +83,10 @@ function receivedMessage(event) {
         sendHelloWorld(senderID);
         break;
 
+        case 'puppers':
+          sendDoggo(senderID);
+          break;
+
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -151,7 +155,28 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-function sendHelloWorld(recipientId, messageText) {
+function sendDoggo(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          title: "DOGGO!",
+          subtitle: "the best pets",
+          url: "https://goo.gl/photos/MSqbn49zLDsHMRkY7"
+        }
+      }
+      text: "OMGDOGGO!"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendHelloWorld(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
