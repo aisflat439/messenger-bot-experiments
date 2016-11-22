@@ -93,8 +93,8 @@ function receivedMessage(event) {
         sendToots(senderID);
         break;
 
-      case 'Doggo':
-        sendDoggo(senderID);
+      case 'Dog':
+        sendDog(senderID);
         break;
 
       default:
@@ -192,7 +192,7 @@ function sendTextMessage(recipientId, messageText) {
 //   callSendAPI(messageData);
 // }
 
-function sendDoggo(recipientId) {
+function sendDog(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -201,7 +201,7 @@ function sendDoggo(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "assets/doggo.jpg"
+          url: SERVER_URL + "assets/dog.jpg"
         }
       }
     }
