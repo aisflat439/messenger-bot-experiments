@@ -6,6 +6,8 @@ const app = express()
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
 
+const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com/"
+
 app.set('port', (process.env.PORT || 5000))
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -83,9 +85,9 @@ function receivedMessage(event) {
         sendHelloWorld(senderID);
         break;
 
-      // case 'puppers':
-      //   sendDoggo(senderID);
-      //   break;
+      case 'Toots':
+        sendToots(senderID);
+        break;
 
       default:
         sendTextMessage(senderID, messageText);
@@ -193,6 +195,17 @@ function sendHelloWorld(recipientId) {
   };
 
   callSendAPI(messageData);
+}
+
+function sendToots(recipientId){
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        text: "Magoots"
+      }
+    };
 }
 
 function callSendAPI(messageData) {
