@@ -6,7 +6,7 @@ const app = express()
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
 
-const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com/"
+const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com"
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     res.send('OMGGMO')
 })
 
-
+app.use('/assets', express.static(path.join(__dirname, 'public')))
 
 app.get('/webhook/', function(req, res){
   if(req.query['hub.verify_token'] === token){
@@ -201,7 +201,7 @@ function sendDog(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "assets/dog.jpg"
+          url: SERVER_URL + "/assets/dog.jpg"
         }
       }
     }
