@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     res.send('OMGGMO')
 })
 
-// app.use('/assets', express.static(path.join(process.env.PWD, 'public')))
+app.use(express.static('assets'))
 
 app.get('/webhook/', function(req, res){
   if(req.query['hub.verify_token'] === token){
