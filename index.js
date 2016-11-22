@@ -184,6 +184,24 @@ function sendTextMessage(recipientId, messageText) {
 //   callSendAPI(messageData);
 // }
 
+function sendDoggo(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          url: SERVER_URL + "/assets/doggo.jpg"
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 function sendHelloWorld(recipientId) {
   var messageData = {
     recipient: {
