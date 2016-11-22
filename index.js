@@ -220,11 +220,11 @@ function sendButtonMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "button",
-          text: "This is test text",
+          text: "Here is the header",
           buttons:[{
             type: "web_url",
-            url: "https://www.oculus.com/en-us/rift/",
-            title: "Open Web URL"
+            url: "https://www.github.com/aisflat439",
+            title: "Follow me on Github!"
           }, {
             type: "postback",
             title: "Trigger Postback",
