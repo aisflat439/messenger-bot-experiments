@@ -18,6 +18,10 @@ app.get('/', function (req, res) {
     res.send('OMGGMO')
 })
 
+app.get('/assets', function(){
+  console.log("Works");
+})
+
 app.use(express.static('assets'))
 
 app.get('/webhook/', function(req, res){
