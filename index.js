@@ -78,7 +78,7 @@ function receivedMessage(event) {
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
       case 'Button':
-        sendButtonMessage(senderID);
+        buttonReply(senderID);
         break;
 
       case 'generic':
@@ -210,7 +210,7 @@ function sendDoggo(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendButtonMessage(recipientId) {
+function buttonReply(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
