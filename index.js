@@ -206,6 +206,8 @@ function sendToots(recipientId){
         text: "Magoots"
       }
     };
+
+    callSendAPI(messageData);
 }
 
 function callSendAPI(messageData) {
