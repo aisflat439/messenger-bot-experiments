@@ -205,7 +205,7 @@ function sendDog(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "/assets/dog.jpg"
+          url: SERVER_URL + "dog.jpg"
         }
       }
     }
