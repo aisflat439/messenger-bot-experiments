@@ -77,6 +77,10 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
+      case 'Button':
+        sendButtonMessage(senderID);
+        break;
+
       case 'generic':
         sendGenericMessage(senderID);
         break;
@@ -198,6 +202,38 @@ function sendDoggo(recipientId) {
         type: "image",
         payload: {
           url: SERVER_URL + "assets/doggo.jpg"
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendButtonMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "This is test text",
+          buttons:[{
+            type: "web_url",
+            url: "https://www.oculus.com/en-us/rift/",
+            title: "Open Web URL"
+          }, {
+            type: "postback",
+            title: "Trigger Postback",
+            payload: "DEVELOPER_DEFINED_PAYLOAD"
+          }, {
+            type: "phone_number",
+            title: "Call Phone Number",
+            payload: "+16505551234"
+          }]
         }
       }
     }
