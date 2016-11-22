@@ -90,7 +90,7 @@ function receivedMessage(event) {
         break;
 
       case 'Doggo':
-        sendToots(senderID);
+        sendDoggo(senderID);
         break;
 
       default:
