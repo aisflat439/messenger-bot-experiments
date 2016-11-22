@@ -89,13 +89,13 @@ function receivedMessage(event) {
         sendToots(senderID);
         break;
 
-      case 'Button':
-        sendButton(senderID):
-        break;
+      // case 'Button':
+        // sendButton(senderID):
+        // break;
 
-      case 'Doggo':
-        sendDoggo(senderID);
-        break;
+      // case 'Doggo':
+        // sendDoggo(senderID);
+//        break;
 
       default:
         sendTextMessage(senderID, messageText);
@@ -216,27 +216,27 @@ function sendButton(recipientId) {
       id: recipientId
     },
     message: {
-  attachment: {
-    type: "template",
-    payload: {
-      template_type: "button",
-      text: "I'm a button group",
-      buttons:[{
-        type: "web_url",
-        url: "https://github.com/aisflat439",
-        title: "Find me on Github"
-      }, {
-        type: "postback",
-        title: "Need to figure out this",
-        payload: "DEVELOPER_DEFINED_PAYLOAD"
-      }, {
-        type: "phone_number",
-        title: "Call Phone Me!",
-        payload: "+16103220909"
-      }]
+      attachment: {
+        type: "template",
+        payload: {
+        template_type: "button",
+        text: "I'm a button group",
+        buttons:[{
+          type: "web_url",
+          url: "https://github.com/aisflat439",
+          title: "Find me on Github"
+        }, {
+          type: "postback",
+          title: "Need to figure out this",
+          payload: "DEVELOPER_DEFINED_PAYLOAD"
+        }, {
+          type: "phone_number",
+          title: "Call Phone Me!",
+          payload: "+16103220909"
+        }]
+      }
     }
   }
-}
 };
 
 callSendAPI(messageData);
