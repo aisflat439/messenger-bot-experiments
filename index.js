@@ -197,7 +197,7 @@ function sendDoggo(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "/assets/doggo.jpg"
+          url: SERVER_URL + "assets/doggo.jpg"
         }
       }
     }
