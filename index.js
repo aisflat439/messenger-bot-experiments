@@ -89,6 +89,10 @@ function receivedMessage(event) {
         sendToots(senderID);
         break;
 
+      case 'Doggo':
+        sendToots(senderID);
+        break;
+
       default:
         sendTextMessage(senderID, messageText);
     }
