@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const baseObjects = require('baseObjects.js');
+const baseObjects = require('./baseObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
@@ -128,10 +128,6 @@ function receivedMessage(event) {
       case 'Toots':
         sendToots(senderID);
         break;
-
-      // case 'Dog':
-      //   sendDog(senderID);
-      //   break;
 
       case 'Test':
         sendTestButton(senderID);
