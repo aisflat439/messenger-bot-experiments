@@ -108,6 +108,10 @@ function receivedMessage(event) {
         sendDog(senderID);
         break;
 
+      case 'Test':
+        sendTestButton(senderID);
+        break;
+
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -160,6 +164,33 @@ function sendGenericMessage(recipientId) {
     }
   };
 
+  callSendAPI(messageData);
+}
+
+function sendTestButton(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "OMG DOGGO!",
+            subtitle: "Here is my dog",
+            image_url: SERVER_URL + "/pup.jpg",
+            buttons: [{
+              type: "postback",
+              title: "Triggers a Postback",
+              payload: "Puppers Pic!!!!"
+            }]
+          }]
+        }
+      }
+    }
+  }
   callSendAPI(messageData);
 }
 
