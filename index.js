@@ -155,7 +155,6 @@ function sendDogs(recipientId){
 
   callSendAPI(messageData);
 }
-}
 
 function sendShortcuts(recipientId){
   var messageData = {
@@ -182,8 +181,6 @@ function sendAdventure(recipientId){
 
   callSendAPI(messageData);
 }
-}
-
 
 function sendDefaultButton(recipientId) {
   var messageData = {
