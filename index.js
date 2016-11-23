@@ -154,7 +154,8 @@ function receivedMessage(event) {
 
 function sendDogs(recipientId){
   var messageData = textMessage;
-  messageData.message.text = "Here's some info about my dogs."
+  messageData.recipient.id = recipientId;
+  messageData.message.text = "Here's some info about my dogs.";
 
   callSendAPI(messageData);
 }

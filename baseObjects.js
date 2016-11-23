@@ -1,6 +1,6 @@
 var textMessage = {
   recipient: {
-    id: recipientId
+    id: ""
   },
   message: {
     text: ""
