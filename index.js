@@ -296,7 +296,7 @@ function sendJoey(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendJoey(recipientId) {
+function sendSeven(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
