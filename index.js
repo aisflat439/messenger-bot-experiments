@@ -153,15 +153,13 @@ function sendDogs(recipientId){
     }
   };
 
-  app.setTimeout(callSendAPI(messageData), 2000);
-  app.setTimeout(sendTunaPhoto(recipientId), 2000);
-  // callSendAPI(messageData);
-  // sendTunaPhoto(recipientId);
-  // aboutTuna(recipientId);
-  // sendJoeyPhoto(recipientId);
-  // aboutJoey(recipientId);
-  // aboutSeven(recipientId);
-  // sendSevenPhoto(recipientId);
+  callSendAPI(messageData);
+  sendTunaPhoto(recipientId);
+  aboutTuna(recipientId);
+  sendJoeyPhoto(recipientId);
+  aboutJoey(recipientId);
+  aboutSeven(recipientId);
+  sendSevenPhoto(recipientId);
 }
 
 function sendFetch(recipientId){
