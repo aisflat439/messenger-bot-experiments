@@ -46,6 +46,8 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
+        } else if (event.postback){
+          evaluatePostback(event);
         } else {
           console.log("Webhook received unknown event: ", event);
         }
@@ -60,6 +62,10 @@ app.post('/webhook', function (req, res) {
     res.sendStatus(200);
   }
 });
+
+function evaluatePostback(event){
+  console.log("-----------Something happened------------");
+}
 
 function receivedMessage(event) {
   var senderID = event.sender.id;
@@ -168,33 +174,6 @@ function sendTextMessage(recipientId, messageText) {
 
   callSendAPI(messageData);
 }
-
-// function sendDoggo(recipientId) {
-//   var messageData = {
-//     recipient: {
-//       id: recipientId
-//     },
-//     message: {
-//       attachment: {
-//         type: "template",
-//         payload: {
-//           template_type: "generic",
-//           elements: [{
-//             title: "DOGGO!",
-//             subtitle: "the best pets",
-//             url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
-//           },{
-//             title: "Still!",
-//             subtitle: "the best pets",
-//             url: "https://avatars2.githubusercontent.com/u/3719502?v=3&s=460"
-//           }]
-//         }
-//       }
-//     }
-//   };
-//
-//   callSendAPI(messageData);
-// }
 
 function sendDog(recipientId) {
   var messageData = {
