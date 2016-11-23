@@ -65,6 +65,7 @@ app.post('/webhook', function (req, res) {
 
 function evaluatePostback(event){
   console.log("-----------Something happened------------");
+  console.log(event.postback);
 }
 
 function receivedMessage(event) {
