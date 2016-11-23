@@ -178,7 +178,7 @@ function sendGenericDogs(recipientId){
             title: "Seven",
             subtitle: "SEVENS!",
             image_url: SERVER_URL + "/seven.jpg"
-          }
+          }]
         }
       }
     }
