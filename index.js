@@ -156,35 +156,35 @@ function sendDogs(recipientId){
   callSendAPI(messageData);
 }
 
-function sendGenericDogs(recipientId){
-  var messageData = {
-  recipient: {
-    id: recipientId
-  },
-  message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "Joey",
-            subtitle: "Our first dog. Tres.",
-            image_url: SERVER_URL + "/joey.jpg"
-          },{
-            title: "Tuna",
-            subtitle: "Also known as Beguna",
-            image_url: SERVER_URL + "/tuna.jpg"
-          },{
-            title: "Seven",
-            subtitle: "SEVENS!",
-            image_url: SERVER_URL + "/seven.jpg"
-          }]
-        }
-      }
-    }
-  };
-  callSendAPI(messageData);
-}
+// function sendGenericDogs(recipientId){
+//   var messageData = {
+//   recipient: {
+//     id: recipientId
+//   },
+//   message: {
+//       attachment: {
+//         type: "template",
+//         payload: {
+//           template_type: "generic",
+//           elements: [{
+//             title: "Joey",
+//             subtitle: "Our first dog. Tres.",
+//             image_url: SERVER_URL + "/joey.jpg"
+//           },{
+//             title: "Tuna",
+//             subtitle: "Also known as Beguna",
+//             image_url: SERVER_URL + "/tuna.jpg"
+//           },{
+//             title: "Seven",
+//             subtitle: "SEVENS!",
+//             image_url: SERVER_URL + "/seven.jpg"
+//           }]
+//         }
+//       }
+//     }
+//   };
+//   callSendAPI(messageData);
+// }
 
 function sendFetch(recipientId){
   var messageData = {
