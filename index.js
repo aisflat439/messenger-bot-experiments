@@ -73,7 +73,7 @@ function evaluatePostback(event){
   var recipientID = event.recipient.id;
   var postback = event.postback
 
-  if (postback){
+  if  (postback){
 
     switch (postback.payload) {
       case 'dogs':
@@ -153,13 +153,15 @@ function sendDogs(recipientId){
     }
   };
 
-  callSendAPI(messageData);
-  sendDog(recipientId);
-  aboutTuna(recipientId);
-  sendJoey(recipientId);
-  aboutJoey(recipientId);
-  aboutSeven(recipientId);
-  sendSevenPhoto(recipientId);
+  app.setTimeout(callSendAPI(messageData), 2000);
+  app.setTimeout(sendTunaPhoto(recipientId), 2000);
+  // callSendAPI(messageData);
+  // sendTunaPhoto(recipientId);
+  // aboutTuna(recipientId);
+  // sendJoeyPhoto(recipientId);
+  // aboutJoey(recipientId);
+  // aboutSeven(recipientId);
+  // sendSevenPhoto(recipientId);
 }
 
 function sendFetch(recipientId){
@@ -260,7 +262,7 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-function sendDog(recipientId) {
+function sendTunaPhoto(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -269,7 +271,7 @@ function sendDog(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "/dog.jpg"
+          url: SERVER_URL + "/tuna.jpg"
         }
       }
     }
@@ -278,7 +280,7 @@ function sendDog(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendJoey(recipientId) {
+function sendJoeyPhoto(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
