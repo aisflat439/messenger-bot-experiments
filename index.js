@@ -66,6 +66,8 @@ app.post('/webhook', function (req, res) {
 function evaluatePostback(event){
   console.log("-----------Something happened------------");
   console.log(event.postback);
+  console.log("-----------postback------------");
+  console.log(typeof(event.postback));
 
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
@@ -152,6 +154,7 @@ function sendDogs(recipientId){
   };
 
   callSendAPI(messageData);
+  sendDog(recipientId);
 }
 
 function sendFetch(recipientId){
@@ -190,7 +193,7 @@ function sendDefaultButton(recipientId) {
         type: "template",
         payload: {
           template_type: "button",
-          text: "Hi! What should we work on?",
+          text: "Hi! What should we do?",
           buttons:[{
             type: "postback",
             title: "See my dogs",
