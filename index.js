@@ -74,9 +74,18 @@ function evaluatePostback(event){
   if (postback){
 
     switch (postback) {
-      case 'One':
-
+      case 'dogs':
+        sendDogs(senderID);
         break;
+
+      case 'shortcuts':
+        sendShortcuts(senderID);
+        break;
+
+      case 'adventure':
+        sendAdventure(senderID);
+        break;
+
       default:
         sendSeven(senderID);
         break;
@@ -125,11 +134,87 @@ function receivedMessage(event) {
         break;
 
       default:
+        sendDefaultButton(senderID);
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
+}
+
+
+function sendDogs(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Great! Let's see some dogs"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+}
+
+function sendShortcuts(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Great! Let's practice some shortcuts"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendAdventure(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Adventure time!"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+}
+
+
+function sendDefaultButton(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Hi! What should we work on?",
+          buttons:[{
+            type: "postback",
+            title: "See my dogs",
+            payload: "dogs"
+          }, {
+            type: "postback",
+            title: "Learn some Atom shortcuts",
+            payload: "shortcuts"
+          }, {
+            type: "postback",
+            title: "Have an adventure",
+            payload: "adventure"
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
 }
 
 function sendTestButton(recipientId){
