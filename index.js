@@ -73,13 +73,13 @@ function evaluatePostback(event){
 
   if (postback){
 
-    switch (postback) {
+    switch (postback.payload) {
       case 'dogs':
         sendDogs(senderID);
         break;
 
-      case 'shortcuts':
-        sendShortcuts(senderID);
+      case 'fetch':
+        sendFetch(senderID);
         break;
 
       case 'adventure':
@@ -135,13 +135,11 @@ function receivedMessage(event) {
 
       default:
         sendDefaultButton(senderID);
-        sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
-
 
 function sendDogs(recipientId){
   var messageData = {
@@ -156,13 +154,13 @@ function sendDogs(recipientId){
   callSendAPI(messageData);
 }
 
-function sendShortcuts(recipientId){
+function sendFetch(recipientId){
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "Great! Let's practice some shortcuts"
+      text: "Okay but I haven't made that"
     }
   };
 
@@ -199,8 +197,8 @@ function sendDefaultButton(recipientId) {
             payload: "dogs"
           }, {
             type: "postback",
-            title: "Learn some Atom shortcuts",
-            payload: "shortcuts"
+            title: "Fetch",
+            payload: "fetch"
           }, {
             type: "postback",
             title: "Have an adventure",
