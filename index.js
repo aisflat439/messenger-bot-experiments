@@ -155,6 +155,11 @@ function sendDogs(recipientId){
 
   callSendAPI(messageData);
   sendDog(recipientId);
+  aboutTuna(recipientId);
+  sendJoey(recipientId);
+  aboutJoey(recipientId);
+  aboutSeven(recipientId);
+  sendSeven(recipientId);
 }
 
 function sendFetch(recipientId){
@@ -273,6 +278,42 @@ function sendDog(recipientId) {
   callSendAPI(messageData);
 }
 
+function sendJoey(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          url: SERVER_URL + "/joey.jpg"
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendJoey(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          url: SERVER_URL + "/seven.jpg"
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 function buttonReply(recipientId) {
   var messageData = {
     recipient: {
@@ -342,6 +383,45 @@ function sendToots(recipientId){
     };
 
     callSendAPI(messageData);
+}
+
+function aboutTuna(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function aboutJoey(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Next is Joey although she came first. She's practically perfect in every way. Quite a princess."
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+function aboutSeven(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
+    }
+  };
+
+  callSendAPI(messageData);
 }
 
 function callSendAPI(messageData) {
