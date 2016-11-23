@@ -153,7 +153,7 @@ function receivedMessage(event) {
 
 
 function sendDogs(recipientId){
-  var messageData = textMessage;
+  var messageData = baseObjects.textMessage;
   messageData.recipient.id = recipientId;
   messageData.message.text = "Here's some info about my dogs.";
 
