@@ -159,7 +159,7 @@ function sendDogs(recipientId){
   sendJoey(recipientId);
   aboutJoey(recipientId);
   aboutSeven(recipientId);
-  sendSeven(recipientId);
+  sendSevenPhoto(recipientId);
 }
 
 function sendFetch(recipientId){
@@ -296,7 +296,7 @@ function sendJoey(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendSeven(recipientId) {
+function sendSevenPhoto(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
