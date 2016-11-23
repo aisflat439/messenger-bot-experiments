@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+const baseObjects = require('baseObjects.js');
+
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
 
@@ -127,9 +129,9 @@ function receivedMessage(event) {
         sendToots(senderID);
         break;
 
-      case 'Dog':
-        sendDog(senderID);
-        break;
+      // case 'Dog':
+      //   sendDog(senderID);
+      //   break;
 
       case 'Test':
         sendTestButton(senderID);
@@ -142,16 +144,21 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
+// ____________________________
+// Reusable variables
+// var textMessage = {
+//   recipient: {
+//     id: recipientId
+//   },
+//   message: {
+//     text: ""
+//   }
+// };
+
 
 function sendDogs(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Great! Let's see some dogs"
-    }
-  };
+  var messageData = textMessage;
+  messageData.message.text = "Here's some info about my dogs."
 
   callSendAPI(messageData);
 }
