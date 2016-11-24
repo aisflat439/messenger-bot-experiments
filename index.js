@@ -79,7 +79,7 @@ function evaluatePostback(event){
 
     switch (postback.payload) {
       case 'dogs':
-        sendDogs(senderID);
+        sendJoeyPhoto(senderID);
         break;
 
       case 'fetch':
