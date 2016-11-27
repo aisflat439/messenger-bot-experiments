@@ -130,7 +130,7 @@ function receivedMessage(event) {
         break;
 
       case 'Test':
-        sendTestButton(senderID);
+        sendButtonTest(senderID);
         break;
 
       default:
@@ -156,6 +156,22 @@ function sendDogs(recipientId){
   var messageData = baseObjects.textMessage;
   messageData.recipient.id = recipientId;
   messageData.message.text = "Here's some info about my dogs.";
+
+  callSendAPI(messageData);
+}
+
+function sendButtonTest(recipientId){
+  var messageData = baseObjects.threeButtonMessage;
+  messageData.recipient.id = recipientId;
+  messageData.message.attachment.payload.text = "DERP";
+  messageData.message.attachment.payload.buttons.title = "omggmo";
+  messageData.message.attachment.payload.buttons.title = "oneeeee";
+  messageData.message.attachment.payload.text = "DERPa";
+  messageData.message.attachment.payload.buttons.title = "gmo";
+  messageData.message.attachment.payload.buttons.title = "twoooo";
+  messageData.message.attachment.payload.text = "DERPaDerp";
+  messageData.message.attachment.payload.buttons.title = "omg";
+  messageData.message.attachment.payload.buttons.title = "three";
 
   callSendAPI(messageData);
 }
