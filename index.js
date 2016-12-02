@@ -152,12 +152,12 @@ function sendDogs(recipientId){
 function sendButtonTest(recipientId){
   var messageData = baseObjects.threeButtonMessage;
   messageData.recipient.id = recipientId;
-  messageData.message.attachment.payload.text = "DERP";
-  messageData.message.attachment.payload.buttons[0].title = "omggmo";
+  messageData.message.attachment.payload.text = "Cool! lets do that!";
+  messageData.message.attachment.payload.buttons[0].title = "I'm a longer title text";
   messageData.message.attachment.payload.buttons[0].payload = "oneeeee";
-  messageData.message.attachment.payload.buttons[1].title = "twoooo";
+  messageData.message.attachment.payload.buttons[1].title = "Continuing longer test";
   messageData.message.attachment.payload.buttons[1].payload = "gmo";
-  messageData.message.attachment.payload.buttons[2].title = "omg";
+  messageData.message.attachment.payload.buttons[2].title = "Test";
   messageData.message.attachment.payload.buttons[2].payload = "three";
 
   callSendAPI(messageData);
