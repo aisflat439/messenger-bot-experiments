@@ -166,13 +166,22 @@ function sendButtonTest(recipientId){
   messageData.message.attachment.payload.text = "DERP";
   messageData.message.attachment.payload.buttons[0].title = "omggmo";
   messageData.message.attachment.payload.buttons[0].payload = "oneeeee";
-  messageData.message.attachment.payload.buttons[1].payload = "gmo";
   messageData.message.attachment.payload.buttons[1].title = "twoooo";
+  messageData.message.attachment.payload.buttons[1].payload = "gmo";
   messageData.message.attachment.payload.buttons[2].title = "omg";
   messageData.message.attachment.payload.buttons[2].payload = "three";
 
   callSendAPI(messageData);
 }
+
+function sendFetch(recipientId) {
+  var messageData = baseObjects.photoMessage;
+  messageData.recipient.id = recipientId;
+  messageData.message.attachment.payload.url = SERVER_URL + "/pup.jpg"
+
+  callSendAPI(messageData);
+}
+
 
 // function sendGenericDogs(recipientId){
 //   var messageData = {

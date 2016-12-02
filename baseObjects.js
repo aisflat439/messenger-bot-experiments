@@ -7,6 +7,20 @@ var textMessage = {
   }
 };
 
+var photoMessage = {
+  recipient: {
+    id: ""
+  },
+  message: {
+    attachment: {
+      type: "image",
+      payload: {
+        url: ""
+      }
+    }
+  }
+};
+
 var threeButtonMessage = {
   recipient: {
     id: ""
@@ -37,3 +51,4 @@ var threeButtonMessage = {
 
 exports.textMessage = textMessage;
 exports.threeButtonMessage = threeButtonMessage;
+exports.photoMessage = photoMessage;
