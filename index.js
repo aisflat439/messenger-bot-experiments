@@ -133,6 +133,14 @@ function receivedMessage(event) {
         sendButtonTest(senderID);
         break;
 
+      case 'Joey':
+        aboutJoey(senderID);
+        break;
+
+      case 'Tuna':
+        aboutTuna(senderID);
+        break;
+
       case 'Seven':
         aboutSeven(senderID);
         break;
@@ -411,27 +419,17 @@ function sendToots(recipientId){
 }
 
 function aboutTuna(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
-    }
-  };
+  var messageData = baseObjects.textMessage;
+  messageData.recipient.id = recipientId;
+  messageData.message.text = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
 
   callSendAPI(messageData);
 }
 
 function aboutJoey(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Next is Joey although she came first. She's practically perfect in every way. Quite a princess."
-    }
-  };
+  var messageData = baseObjects.textMessage;
+  messageData.recipient.id = recipientId;
+  messageData.message.text = "Joey is practically perfect in every way. She was the lady's first dog."
 
   callSendAPI(messageData);
 }
@@ -440,14 +438,6 @@ function aboutSeven(recipientId){
   var messageData = baseObjects.textMessage;
   messageData.recipient.id = recipientId;
   messageData.message.text = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
-  // var messageData = {
-  //   recipient: {
-  //     id: recipientId
-  //   },
-  //   message: {
-  //     text: "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
-  //   }
-  // };
 
   callSendAPI(messageData);
 }
