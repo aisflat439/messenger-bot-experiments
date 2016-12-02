@@ -145,6 +145,10 @@ function receivedMessage(event) {
         aboutSeven(senderID);
         break;
 
+      case 'Puppers':
+        sendTestButton(senderID);
+        break;
+
       default:
         sendDefaultButton(senderID);
     }
@@ -280,19 +284,6 @@ function sendTestButton(recipientId){
   callSendAPI(messageData);
 }
 
-function sendTextMessage(recipientId, messageText) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: messageText
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
 function sendTunaPhoto(recipientId) {
   var messageData = {
     recipient: {
@@ -357,7 +348,7 @@ function buttonReply(recipientId) {
         type: "template",
         payload: {
           template_type: "button",
-          text: "Here is the header",
+          text: "Here's some info about me.",
           buttons:[{
             type: "web_url",
             url: "https://www.github.com/aisflat439",
