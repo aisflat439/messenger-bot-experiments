@@ -133,6 +133,10 @@ function receivedMessage(event) {
         sendButtonTest(senderID);
         break;
 
+      case 'Seven':
+        aboutSeven(senderID);
+        break;
+
       default:
         sendDefaultButton(senderID);
     }
@@ -153,7 +157,7 @@ function sendButtonTest(recipientId){
   var messageData = baseObjects.threeButtonMessage;
   messageData.recipient.id = recipientId;
   messageData.message.attachment.payload.text = "Cool! lets do that!";
-  messageData.message.attachment.payload.buttons[0].title = "I'm a longer title text";
+  messageData.message.attachment.payload.buttons[0].title = "I'm a longer title";
   messageData.message.attachment.payload.buttons[0].payload = "oneeeee";
   messageData.message.attachment.payload.buttons[1].title = "Continuing longer test";
   messageData.message.attachment.payload.buttons[1].payload = "gmo";
@@ -433,14 +437,17 @@ function aboutJoey(recipientId){
 }
 
 function aboutSeven(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
-    }
-  };
+  var messageData = baseObjects.textMessage;
+  messageData.recipient.id = recipientId;
+  messageData.message.text = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
+  // var messageData = {
+  //   recipient: {
+  //     id: recipientId
+  //   },
+  //   message: {
+  //     text: "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
+  //   }
+  // };
 
   callSendAPI(messageData);
 }
