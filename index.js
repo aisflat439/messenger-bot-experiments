@@ -213,18 +213,18 @@ function sendFetch(recipientId) {
 //   callSendAPI(messageData);
 // }
 
-function sendFetch(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Okay but I haven't made that"
-    }
-  };
-
-  callSendAPI(messageData);
-}
+// function sendFetch(recipientId){
+//   var messageData = {
+//     recipient: {
+//       id: recipientId
+//     },
+//     message: {
+//       text: "Okay but I haven't made that"
+//     }
+//   };
+//
+//   callSendAPI(messageData);
+// }
 
 function sendAdventure(recipientId){
   var messageData = {
