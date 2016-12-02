@@ -140,17 +140,6 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
-// ____________________________
-// Reusable variables
-// var textMessage = {
-//   recipient: {
-//     id: recipientId
-//   },
-//   message: {
-//     text: ""
-//   }
-// };
-
 
 function sendDogs(recipientId){
   var messageData = baseObjects.textMessage;
@@ -177,11 +166,10 @@ function sendButtonTest(recipientId){
 function sendFetch(recipientId) {
   var messageData = baseObjects.photoMessage;
   messageData.recipient.id = recipientId;
-  messageData.message.attachment.payload.url = SERVER_URL + "/pup.jpg"
+  messageData.message.attachment.payload.url = SERVER_URL + "/pup.jpg";
 
   callSendAPI(messageData);
 }
-
 
 // function sendGenericDogs(recipientId){
 //   var messageData = {
@@ -213,28 +201,10 @@ function sendFetch(recipientId) {
 //   callSendAPI(messageData);
 // }
 
-// function sendFetch(recipientId){
-//   var messageData = {
-//     recipient: {
-//       id: recipientId
-//     },
-//     message: {
-//       text: "Okay but I haven't made that"
-//     }
-//   };
-//
-//   callSendAPI(messageData);
-// }
-
 function sendAdventure(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Adventure time!"
-    }
-  };
+  var messageData = baseObjects.photoMessage;
+  messageData.recipientId = recipientId;
+  messageData.message.attachment.payload.url = SERVER_URL + "/ready.jpg"
 
   callSendAPI(messageData);
 }
