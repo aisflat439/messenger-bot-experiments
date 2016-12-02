@@ -4,6 +4,7 @@ const request = require('request')
 const app = express()
 
 const baseObjects = require('./baseObjects.js');
+const alternateObjects = require('./alternateObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
@@ -146,7 +147,9 @@ function receivedMessage(event) {
         break;
 
       case 'Puppers':
-        sendTestButton(senderID);
+        // sendTestButton(senderID);
+        p = new alternateObjects.photoButtonMessage();
+        console.log(p.messageData);
         break;
 
       default:
