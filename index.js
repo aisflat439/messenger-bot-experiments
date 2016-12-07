@@ -115,11 +115,9 @@ function receivedMessage(event) {
 
   if (messageText) {
 
-    // If we receive a text message, check to see if it matches a keyword
-    // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
       case 'OMG':
-        altObjectReply(senderID, "GMO");
+        altObjectReply(senderID);
         break;
 
       case 'Button':
@@ -342,6 +340,12 @@ function sendSevenPhoto(recipientId) {
     }
   };
 
+  callSendAPI(messageData);
+}
+
+function altObjectReply(recipientId){
+  r = new objectTextMessage(recipientId, "GMO");
+  messageData = r.messageData;
   callSendAPI(messageData);
 }
 
