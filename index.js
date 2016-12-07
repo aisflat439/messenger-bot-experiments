@@ -118,6 +118,10 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
+      case 'OMG':
+        altObjectReply(senderID, "GMO");
+        break;
+
       case 'Button':
         buttonReply(senderID);
         break;
