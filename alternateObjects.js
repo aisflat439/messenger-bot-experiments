@@ -1,4 +1,4 @@
-function objTextMessage(id, text) {
+function ObjTextMessage(id, text) {
   this.id = id;
   this.text = text;
 
@@ -48,4 +48,4 @@ function objTextMessage(id, text) {
 
 
 // exports.photoButtonMessage = photoButtonMessage;
-exports.objTextMessage = objTextMessage;
+exports.objTextMessage = ObjTextMessage;
