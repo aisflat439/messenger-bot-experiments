@@ -47,5 +47,5 @@ function objTextMessage(id, text) {
 // }
 
 
-exports.photoButtonMessage = photoButtonMessage;
+// exports.photoButtonMessage = photoButtonMessage;
 exports.objTextMessage = objTextMessage;
