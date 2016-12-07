@@ -344,7 +344,7 @@ function sendSevenPhoto(recipientId) {
 }
 
 function altObjectReply(recipientId){
-  r = new objectTextMessage(recipientId, "GMO");
+  r = new alternateObjects.objectTextMessage(recipientId, "GMO");
   messageData = r.messageData;
   callSendAPI(messageData);
 }
