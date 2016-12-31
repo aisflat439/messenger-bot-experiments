@@ -3,8 +3,9 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const baseObjects = require('./baseObjects.js');
-const alternateObjects = require('./alternateObjects.js');
+const baseObjects       = require('./baseObjects.js');
+const alternateObjects  = require('./alternateObjects.js');
+const buttonObjects     = require('./buttonObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
@@ -130,6 +131,14 @@ function receivedMessage(event) {
         sendHelloWorld(senderID);
         break;
 
+      case 'Test':
+        m = "Two button message!";
+        b1 = new buttonObjects.urlButton("sample", "https://www.facebook.com");
+        b2 = new buttonObjects.urlButton("sample", "https://www.facebook.com");
+        botReply = new buttonObjects.testButton(senderID, m, b1, b2);
+        callSendAPI(botReply.message);
+        break;
+
       case 'Two':
         m = "Two button message!";
         bOne = "First Button";
@@ -144,12 +153,6 @@ function receivedMessage(event) {
         bTwo = "Second Button";
         bThree = "Third Button";
         botReply = new alternateObjects.ThreeButtonMessage(senderID, m, bOne, bTwo, bThree)
-        callSendAPI(botReply.message);
-        break;
-
-      case 'Test':
-        m = "Three button message!";
-        botReply = new alternateObjects.ThreeButtonMessage(senderID)
         callSendAPI(botReply.message);
         break;
 
