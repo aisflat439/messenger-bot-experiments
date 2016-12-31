@@ -138,6 +138,15 @@ function receivedMessage(event) {
         callSendAPI(botReply.message);
         break;
 
+      case 'Three':
+        m = "Three button message!";
+        bOne = "First Button";
+        bTwo = "Second Button";
+        bThree = "Third Button";
+        botReply = new alternateObjects.TwoButtonMessage(senderID, message, bOne, bTwo, bThree)
+        callSendAPI(botReply.message);
+        break;
+
       case 'Photos':
         m = new alternateObjects.PhotoOnlyMessage(senderID, "/seven.jpg");
         callSendAPI(m.messageData);
