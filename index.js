@@ -94,7 +94,7 @@ function evaluatePostback(event){
         callSendAPI(botReply.message);
         btn = new button.PostbackButton("Should we check out the park?", "payload1");
         botReply = new button.OneButtonMessage(senderID, btn);
-        callSendAPI(botReply);
+        callSendAPI(botReply.message);
         break;
 
       case 'adventure':
