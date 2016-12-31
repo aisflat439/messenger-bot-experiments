@@ -95,7 +95,7 @@ function evaluatePostback(event){
           callSendAPI(botReply.message);
         }, 1000);
         setTimeout(function(){
-          btn = new button.PostbackButton("Okay!", "payload1");
+          btn = new button.PostbackButton("Okay!", "fetch-park");
           botReply = new button.OneButtonMessage(senderID, "Let's go check out the park.", btn);
           callSendAPI(botReply.message);
         }, 2000);
@@ -106,9 +106,19 @@ function evaluatePostback(event){
         callSendAPI(botReply.message);
         break;
 
-      case 'payload1':
-        botReply = new text.TextMessage(senderID, "You did it")
-        callSendAPI(botReply.message)
+      case 'fetch-park':
+        botReply = new text.TextMessage(senderID, "The park is one of my favorite places. Sometimes I go and play fetch for hours. I've been known to jump to get a ball.");
+        callSendAPI(botReply.message);
+        setTimeout(function(){
+          botReply = new image.PhotoOnlyMessage(senderID, "/jump.jpg");
+          callSendAPI(botReply.message);
+        }, 1000);
+        setTimeout(function(){
+          btn1 = button.PostbackButton("Dogs", "dogs");
+          btn2 = button.PostbackButton("Adventure", "adventure");
+          botReply = new button.TwoButtonMessage(senderID, "What's next? Meet the dogs or an adventure?", btn1, btn2);
+          callSendAPI(botReply.message);
+        }, 2000)
         break;
 
       case 'payload2':
