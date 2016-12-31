@@ -11,6 +11,22 @@ function ObjTextMessage(id, text) {
   }
 }
 
+function ObjPhotoOnlyMessage(id, photoURL){
+  this.messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "image",
+        payload: {
+          url: SERVER_URL + photoURL
+        }
+      }
+    }
+  };
+}
+
 function ObjPhotoButtonMessage(id, title, subtitle){
     this.messageData = {
       recipient: {
@@ -72,5 +88,6 @@ function ObjPhotoButtonMessage(id, title, subtitle){
 
 
 // exports.photoButtonMessage = photoButtonMessage;
-exports.ObjTextMessage = ObjTextMessage;
-exports.ObjPhotoButtonMessage = ObjPhotoButtonMessage;
+exports.TextMessage = ObjTextMessage;
+exports.PhotoOnlyMessage = ObjPhotoOnlyMessage;
+exports.PhotoButtonMessage = ObjPhotoButtonMessage;
