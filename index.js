@@ -132,8 +132,9 @@ function receivedMessage(event) {
         sendToots(senderID);
         break;
 
-      case 'Test':
-        sendButtonTest(senderID);
+      case 'Photos':
+        m = new alternateObjects.PhotoOnlyMessage(senderID, "/seven.jpg");
+        callSendAPI(m.messageData);
         break;
 
       case 'Joey':
@@ -150,7 +151,7 @@ function receivedMessage(event) {
 
       case 'Puppers':
         // sendTestButton(senderID);
-        p = new alternateObjects.ObjPhotoButtonMessage(senderID, "Here", "It words");
+        p = new alternateObjects.PhotoButtonMessage(senderID, "Here", "It words");
         console.log(p.messageData);
         callSendAPI(p.messageData);
         break;
@@ -315,7 +316,7 @@ function sendSevenPhoto(recipientId) {
 }
 
 function altObjectReply(recipientId){
-  r = new alternateObjects.ObjTextMessage(recipientId, "GMO");
+  r = new alternateObjects.TextMessage(recipientId, "GMO");
   messageData = r.messageData;
   callSendAPI(messageData);
 }
