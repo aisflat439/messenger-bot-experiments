@@ -82,8 +82,7 @@ function evaluatePostback(event){
   if  (postback){
 
     switch (postback.payload) {
-      id, title, subtitle, img, btnTitle, payload
-      // senderID, "Woods", "We love a good woods adventure.", "/woodss.jpg", "Keep going?");
+      
       case 'dogs':
         title = "Joey";
         subtitle = "This is Joey, She's tres adorable.";
