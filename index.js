@@ -162,7 +162,7 @@ function evaluatePostback(event){
         callSendAPI(botReply.message);
         msg = "Learn more:"
         btn1 = new button.UrlButton("Rose Tree Park", "http://www.co.delaware.pa.us/depts/parks/rosetree.html");
-        btn2 = new button.UrlButton("Ridley Creek St. Park", "http://www.dcnr.state.pa.us/stateparks/findapark/ridleycreek/");
+        btn2 = new button.UrlButton("Ridley Creek Park", "http://www.dcnr.state.pa.us/stateparks/findapark/ridleycreek/");
         btn3 = new button.UrlButton("Heinz Wildlife Refuge", "https://www.fws.gov/refuge/john_heinz/");
         botReply = new button.ThreeButtonMessage(senderID, msg, btn3, btn2, btn1);
         callSendAPI(botReply.message);
@@ -199,6 +199,10 @@ function receivedMessage(event) {
 
   if (messageText) {
 
+    if (testReplies(messageText)){
+      messageText = "setReply"
+    }
+
     switch (messageText) {
       case 'OMG':
         message = "GMO";
@@ -212,6 +216,12 @@ function receivedMessage(event) {
 
       case 'hello':
         message = "Hello World!"
+        botReply = new text.TextMessage(senderID, message);
+        callSendAPI(botReply.message)
+        break;
+
+      case 'setReply':
+        message = "I know right? We're super cute."
         botReply = new text.TextMessage(senderID, message);
         callSendAPI(botReply.message)
         break;
@@ -328,4 +338,14 @@ app.listen(app.get('port'), function () {
 function setPhoto(){
   var photo = Math.random() < 0.5 ? "/snow_dog2.jpg" : "/snow_dog.jpg";
   return photo;
+}
+
+function testReplies(msg){
+  wordsArray = ["Awww", "Cute", "Sweet"]
+  for each (word in wordsArray){
+    if (msg.indexOf(word) == -1 ){
+      return true;
+    }
+  }
+  return false;
 }
