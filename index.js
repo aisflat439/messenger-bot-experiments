@@ -138,15 +138,21 @@ function receivedMessage(event) {
         break;
 
       case 'Joey':
-        aboutJoey(senderID);
+        message = "Joey is practically perfect in every way. She was the lady's first dog."
+        botReply(senderID, message)
+        callSendAPI(botReply.message)
         break;
 
       case 'Tuna':
-        aboutTuna(senderID);
+        message = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
+        botReply(senderID, message);
+        callSendAPI(botReply.message);
         break;
 
       case 'Seven':
-        aboutSeven(senderID);
+        message = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
+        botReply = new alternateObjects.TextMessage(senderID, message)
+        callSendAPI(botReply.message)
         break;
 
       case 'Puppers':
@@ -317,8 +323,7 @@ function sendSevenPhoto(recipientId) {
 
 function altObjectReply(recipientId){
   r = new alternateObjects.TextMessage(recipientId, "GMO");
-  messageData = r.messageData;
-  callSendAPI(messageData);
+  callSendAPI(r.message);
 }
 
 function buttonReply(recipientId) {
@@ -392,29 +397,29 @@ function sendToots(recipientId){
     callSendAPI(messageData);
 }
 
-function aboutTuna(recipientId){
-  var messageData = baseObjects.textMessage;
-  messageData.recipient.id = recipientId;
-  messageData.message.text = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
+// function aboutTuna(recipientId){
+//   var messageData = baseObjects.textMessage;
+//   messageData.recipient.id = recipientId;
+//   messageData.message.text = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
+//
+//   callSendAPI(messageData);
+// }
 
-  callSendAPI(messageData);
-}
+// function aboutJoey(recipientId){
+//   var messageData = baseObjects.textMessage;
+//   messageData.recipient.id = recipientId;
+//   messageData.message.text = "Joey is practically perfect in every way. She was the lady's first dog."
+//
+//   callSendAPI(messageData);
+// }
 
-function aboutJoey(recipientId){
-  var messageData = baseObjects.textMessage;
-  messageData.recipient.id = recipientId;
-  messageData.message.text = "Joey is practically perfect in every way. She was the lady's first dog."
-
-  callSendAPI(messageData);
-}
-
-function aboutSeven(recipientId){
-  var messageData = baseObjects.textMessage;
-  messageData.recipient.id = recipientId;
-  messageData.message.text = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
-
-  callSendAPI(messageData);
-}
+// function aboutSeven(recipientId){
+//   var messageData = baseObjects.textMessage;
+//   messageData.recipient.id = recipientId;
+//   messageData.message.text = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
+//
+//   callSendAPI(messageData);
+// }
 
 function callSendAPI(messageData) {
   request({

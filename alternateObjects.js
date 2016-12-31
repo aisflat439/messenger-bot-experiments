@@ -1,7 +1,7 @@
 const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com"
 
 function ObjTextMessage(id, text) {
-  this.messageData = {
+  this.message = {
     recipient: {
       id: id
     },
