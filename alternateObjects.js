@@ -1,21 +1,5 @@
 const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com"
 
-function ObjPhotoOnlyMessage(id, photoURL){
-  this.message = {
-    recipient: {
-      id: id
-    },
-    message: {
-      attachment: {
-        type: "image",
-        payload: {
-          url: SERVER_URL + photoURL
-        }
-      }
-    }
-  };
-}
-
 function ObjPhotoButtonMessage(id, title, subtitle){
     this.messageData = {
       recipient: {
@@ -100,5 +84,5 @@ function ObjThreeButtonMessage(id, message, choiceOne, choiceTwo, choiceThree){
 
 exports.TwoButtonMessage = ObjTwoButtonMessage;
 exports.ThreeButtonMessage = ObjThreeButtonMessage;
-exports.PhotoOnlyMessage = ObjPhotoOnlyMessage;
+// exports.PhotoOnlyMessage = ObjPhotoOnlyMessage;
 exports.PhotoButtonMessage = ObjPhotoButtonMessage;

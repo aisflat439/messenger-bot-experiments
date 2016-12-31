@@ -1,4 +1,4 @@
-function AltObjTwoButtonMessage(id, message, buttonOne, buttonTwo){
+function TwoButtonMessage(id, message, buttonOne, buttonTwo){
   this.message = {
     recipient: {
       id: id
@@ -19,6 +19,28 @@ function AltObjTwoButtonMessage(id, message, buttonOne, buttonTwo){
   };
 }
 
+function ThreeButtonMessage(id, message, buttonOne, buttonTwo, buttonThree){
+  this.message = {
+    recipient: {
+      id: id
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: message,
+          buttons:[
+            buttonOne.fields,
+            buttonTwo.fields,
+            buttonThree.fields
+          ]
+        }
+      }
+    }
+  };
+}
+
 function UrlButton(title, url){
   this.fields = {
     title: title,
@@ -27,11 +49,11 @@ function UrlButton(title, url){
   };
 }
 
-function PostbackButton(title, postback){
+function PostbackButton(title, payload){
   this.fields = {
     title: title,
     type: "postback",
-    payload: postback
+    payload: payload
   };
 }
 
@@ -54,4 +76,5 @@ exports.urlButton = UrlButton;
 exports.postbackButton = PostbackButton;
 exports.callButton = CallButton;
 exports.shareButton = ShareButton;
-exports.testButton = AltObjTwoButtonMessage;
+exports.testButton = TwoButtonMessage;
+exports.threeButtonMessage = ThreeButtonMessage;
