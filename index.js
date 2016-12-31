@@ -90,10 +90,8 @@ function evaluatePostback(event){
       case 'fetch':
         botReply = new text.TextMessage(senderID, "Great! Let me go get my ball");
         callSendAPI(botReply.message);
-        setTimeout(function(){
-          botReply = new image.PhotoOnlyMessage(senderID, "/pup.jpg");
-          callSendAPI(botReply.message);
-        }, 1000);
+        botReply = new image.PhotoOnlyMessage(senderID, "/pup.jpg");
+        callSendAPI(botReply.message);
         setTimeout(function(){
           btn = new button.PostbackButton("Okay!", "fetch-park");
           botReply = new button.OneButtonMessage(senderID, "Let's go check out the park.", btn);
@@ -102,23 +100,40 @@ function evaluatePostback(event){
         break;
 
       case 'adventure':
-        botReply = new image.PhotoOnlyMessage(senderID, "/ready.jpg");
+        botReply = new text.TextMessage(senderID, "We're always ready for an adventure")
         callSendAPI(botReply.message);
+        botReply = new image.PhotoOnlyMessage(senderID, "/lets_go.jpg");
+        callSendAPI(botReply.message);
+        setTimeout(function(){
+          msg = "Where we heading to?"
+          btn1 = new button.PostbackButton("Into the woods!", "adventure-woods");
+          btn2 = new button.PostbackButton("To the snow!", "adventure-snow");
+          botReply = new button.TwoButtonMessage(senderID, msg, bt1, bt2);
+          callSendAPI(botReply.message);
+        } 2000);
         break;
 
       case 'fetch-park':
         botReply = new text.TextMessage(senderID, "The park is one of my favorite places. Sometimes I go and play fetch for hours. I've been known to jump to get a ball.");
         callSendAPI(botReply.message);
-        setTimeout(function(){
-          botReply = new image.PhotoOnlyMessage(senderID, "/jump.jpg");
-          callSendAPI(botReply.message);
-        }, 1000);
+        botReply = new image.PhotoOnlyMessage(senderID, "/jump.jpg");
+        callSendAPI(botReply.message);
         setTimeout(function(){
           btn1 = new button.PostbackButton("Dogs", "dogs");
           btn2 = new button.PostbackButton("Adventure", "adventure");
           botReply = new button.TwoButtonMessage(senderID, "What's next? Meet the dogs or an adventure?", btn1, btn2);
           callSendAPI(botReply.message);
-        }, 2000);
+        }, 3000);
+        break;
+
+      case 'adventure-snow':
+        botReply = new text.TextMessage(senderID, "Snow")
+        callSendAPI(botReply.message)
+        break;
+
+      case 'adventure-woods':
+        botReply = new text.TextMessage(senderID, "Wooods")
+        callSendAPI(botReply.message)
         break;
 
       case 'payload2':
