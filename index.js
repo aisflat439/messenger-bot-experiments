@@ -117,7 +117,9 @@ function receivedMessage(event) {
 
     switch (messageText) {
       case 'OMG':
-        altObjectReply(senderID);
+        message = "GMO";
+        botReply = new alternateObjects.TextMessage(senderID, message);
+        callSendAPI(botReply.message);
         break;
 
       case 'Button':
@@ -128,8 +130,12 @@ function receivedMessage(event) {
         sendHelloWorld(senderID);
         break;
 
-      case 'Toots':
-        sendToots(senderID);
+      case 'Two':
+        m = "Two button message!";
+        bOne = "First Button";
+        bTwo = "Secon Button";
+        botReply = new alternateObjects.TwoButtonMessage(senderID, message, bOne, bTwo)
+        callSendAPI(botReply.message);
         break;
 
       case 'Photos':
@@ -168,14 +174,6 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
-}
-
-function sendDogs(recipientId){
-  var messageData = baseObjects.textMessage;
-  messageData.recipient.id = recipientId;
-  messageData.message.text = "Here's some info about my dogs.";
-
-  callSendAPI(messageData);
 }
 
 function sendButtonTest(recipientId){
@@ -383,43 +381,6 @@ function sendSeven(recipientId){
 
     callSendAPI(messageData);
 }
-
-function sendToots(recipientId){
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        text: "Magoots"
-      }
-    };
-
-    callSendAPI(messageData);
-}
-
-// function aboutTuna(recipientId){
-//   var messageData = baseObjects.textMessage;
-//   messageData.recipient.id = recipientId;
-//   messageData.message.text = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
-//
-//   callSendAPI(messageData);
-// }
-
-// function aboutJoey(recipientId){
-//   var messageData = baseObjects.textMessage;
-//   messageData.recipient.id = recipientId;
-//   messageData.message.text = "Joey is practically perfect in every way. She was the lady's first dog."
-//
-//   callSendAPI(messageData);
-// }
-
-// function aboutSeven(recipientId){
-//   var messageData = baseObjects.textMessage;
-//   messageData.recipient.id = recipientId;
-//   messageData.message.text = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
-//
-//   callSendAPI(messageData);
-// }
 
 function callSendAPI(messageData) {
   request({
