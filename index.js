@@ -82,14 +82,14 @@ function evaluatePostback(event){
   if  (postback){
 
     switch (postback.payload) {
-      
+
       case 'dogs':
         title = "Joey";
         subtitle = "This is Joey, She's tres adorable.";
         img = "/joey.jpg";
         btnTitle = "Ready for Tuna?";
         payload = "dogs-one";
-        p = new button.OneButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
+        p = new alternateObjects.PhotoButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
         callSendAPI(p.messageData);
         break;
 
@@ -99,7 +99,7 @@ function evaluatePostback(event){
         img = "/tuna.jpg";
         btnTitle = "Okay!";
         payload = "dogs-two";
-        p = new button.OneButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
+        p = new alternateObjects.PhotoButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
         callSendAPI(p.messageData);
         break;
 
@@ -109,7 +109,7 @@ function evaluatePostback(event){
         img = "/seven.jpg";
         btnTitle = "Okay!";
         payload = "dogs-happy";
-        p = new button.OneButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
+        p = new alternateObjects.PhotoButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
         callSendAPI(p.messageData);
         break;
 
