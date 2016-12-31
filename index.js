@@ -147,6 +147,11 @@ function receivedMessage(event) {
         callSendAPI(botReply.message);
         break;
 
+      case 'Test'
+        botReply = new alternateObjects.ThreeButtonMessage(senderID)
+        callSendAPI(botReply.message);
+        break;
+
       case 'Photos':
         m = new alternateObjects.PhotoOnlyMessage(senderID, "/seven.jpg");
         callSendAPI(m.messageData);
