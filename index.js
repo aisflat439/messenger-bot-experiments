@@ -113,7 +113,8 @@ function evaluatePostback(event){
         break;
 
       default:
-        sendSeven(senderID);
+        botReply = new text.TextMessage(senderID, "SEVENS!!")
+        callSendAPI(botReply.message)
         break;
     }
   }
@@ -202,7 +203,6 @@ function receivedMessage(event) {
         break;
 
       case 'Puppers':
-        // sendTestButton(senderID);
         p = new alternateObjects.PhotoButtonMessage(senderID, "Here", "It words");
         console.log(p.messageData);
         callSendAPI(p.messageData);
@@ -217,13 +217,25 @@ function receivedMessage(event) {
 }
 
 function sendDefaultButton(recipientId) {
-
   btn1 = new button.PostbackButton("See my dogs", "dogs");
   btn2 = new button.PostbackButton("Fetch", "fetch");
   btn3 = new button.PostbackButton("Have an adventure", "adventure");
+
   botReply = new button.ThreeButtonMessage(recipientId, "Hi! What should we do?", btn1, btn2, btn3);
   callSendAPI(botReply.message)
+}
 
+function buttonReply(recipientId) {
+
+  msg = "Here's some info about me!"
+
+  btn1 = new button.UrlButton("Follow me on Github!", "https://www.github.com/aisflat439");
+  btn2 = new button.PostbackButton("Have an adventure!", "adventure");
+  btn3 = new button.CallButton("Call Phone Number", "6103226109");
+
+  botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
+  callSendAPI(botReply.message);
+  //
   // var messageData = {
   //   recipient: {
   //     id: recipientId
@@ -233,19 +245,19 @@ function sendDefaultButton(recipientId) {
   //       type: "template",
   //       payload: {
   //         template_type: "button",
-  //         text: "Hi! What should we do?",
+  //         text: "Here's some info about me.",
   //         buttons:[{
-  //           type: "postback",
-  //           title: "See my dogs",
-  //           payload: "dogs"
+  //           type: "web_url",
+  //           url: "https://www.github.com/aisflat439",
+  //           title: "Follow me on Github!"
   //         }, {
   //           type: "postback",
-  //           title: "Fetch",
-  //           payload: "fetch"
+  //           title: "Trigger Postback",
+  //           payload: "DEVELOPER_DEFINED_PAYLOAD"
   //         }, {
-  //           type: "postback",
-  //           title: "Have an adventure",
-  //           payload: "adventure"
+  //           type: "phone_number",
+  //           title: "Call Phone Number",
+  //           payload: "+16505551234"
   //         }]
   //       }
   //     }
@@ -253,78 +265,6 @@ function sendDefaultButton(recipientId) {
   // };
   //
   // callSendAPI(messageData);
-}
-
-function sendTestButton(recipientId){
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "OMG DOGGO!",
-            subtitle: "Here is my dog",
-            image_url: SERVER_URL + "/pup.jpg",
-            buttons: [{
-              type: "postback",
-              title: "Triggers a Postback",
-              payload: "Puppers Pic!!!!"
-            }]
-          }]
-        }
-      }
-    }
-  }
-  callSendAPI(messageData);
-}
-
-function buttonReply(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: "Here's some info about me.",
-          buttons:[{
-            type: "web_url",
-            url: "https://www.github.com/aisflat439",
-            title: "Follow me on Github!"
-          }, {
-            type: "postback",
-            title: "Trigger Postback",
-            payload: "DEVELOPER_DEFINED_PAYLOAD"
-          }, {
-            type: "phone_number",
-            title: "Call Phone Number",
-            payload: "+16505551234"
-          }]
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendSeven(recipientId){
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        text: "SEVENS!"
-      }
-    };
-
-    callSendAPI(messageData);
 }
 
 function callSendAPI(messageData) {
