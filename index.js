@@ -143,7 +143,7 @@ function receivedMessage(event) {
         bOne = "First Button";
         bTwo = "Second Button";
         bThree = "Third Button";
-        botReply = new alternateObjects.TwoButtonMessage(senderID, message, bOne, bTwo, bThree)
+        botReply = new alternateObjects.ThreeButtonMessage(senderID, message, bOne, bTwo, bThree)
         callSendAPI(botReply.message);
         break;
 
