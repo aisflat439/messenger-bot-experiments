@@ -110,7 +110,7 @@ function evaluatePostback(event){
           btn2 = new button.PostbackButton("To the snow!", "adventure-snow");
           botReply = new button.TwoButtonMessage(senderID, msg, bt1, bt2);
           callSendAPI(botReply.message);
-        } 2000);
+        }, 2000);
         break;
 
       case 'fetch-park':
@@ -127,8 +127,15 @@ function evaluatePostback(event){
         break;
 
       case 'adventure-snow':
-        botReply = new text.TextMessage(senderID, "Snow")
-        callSendAPI(botReply.message)
+        botReply = new text.TextMessage(senderID, "Here we SNOW!!!");
+        callSendAPI(botReply.message);
+        botReply = new image.PhotoOnlyMessage(senderID, "/snow_dog.jpg");
+        callSendAPI(botReply.message);
+        setTimeout(function(){
+          msg = "Yikes it's chilly, let's head inside!"
+          btn = new button.PostbackButton("Okay", "back-inside");
+          botReply = new button.OneButtonMessage(senderID, msg, btn);
+        }, 2000);
         break;
 
       case 'adventure-woods':
@@ -136,9 +143,11 @@ function evaluatePostback(event){
         callSendAPI(botReply.message)
         break;
 
-      case 'payload2':
-        botReply = new text.TextMessage(senderID, "You did it 2")
+      case 'back-inside':
+        botReply = new text.TextMessage(senderID, "Phew, it was cold. Good to get back on the couch.");
         callSendAPI(botReply.message)
+        botReply = new image.PhotoOnlyMessage(senderID, "/snow_dog.jpg");
+        callSendAPI(botReply.message);
         break;
 
       case 'payload3':
