@@ -141,7 +141,7 @@ function evaluatePostback(event){
         break;
 
       case 'adventure-woods':
-        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "/woods.jpg", "Keep going?");
+        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "/woodss.jpg", "Keep going?");
         callSendAPI(p.messageData);
         break;
 
