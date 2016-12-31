@@ -82,15 +82,18 @@ function evaluatePostback(event){
 
     switch (postback.payload) {
       case 'dogs':
-        sendJoeyPhoto(senderID);
+        botReply = new alternateObjects.PhotoOnlyMessage(senderID, "/buddy.jpg")
+        callSendAPI(botReply.message)
         break;
 
       case 'fetch':
-        sendFetch(senderID);
+        botReply = new alternateObjects.PhotoOnlyMessage(senderID, "/pup.jpg")
+        callSendAPI(botReply.message)
         break;
 
       case 'adventure':
-        sendAdventure(senderID);
+        botReply = new alternateObjects.PhotoOnlyMessage(senderID, "/ready.jpg")
+        callSendAPI(botReply.message)
         break;
 
       default:
@@ -120,7 +123,7 @@ function receivedMessage(event) {
     switch (messageText) {
       case 'OMG':
         message = "GMO";
-        botReply = new alternateObjects.TextMessage(senderID, message);
+        botReply = new text.TextMessage(senderID, message);
         callSendAPI(botReply.message);
         break;
 
@@ -161,24 +164,24 @@ function receivedMessage(event) {
 
       case 'Photos':
         m = new alternateObjects.PhotoOnlyMessage(senderID, "/seven.jpg");
-        callSendAPI(m.messageData);
+        callSendAPI(m.message);
         break;
 
       case 'Joey':
         message = "Joey is practically perfect in every way. She was the lady's first dog."
-        botReply = new alternateObjects.TextMessage(senderID, message)
+        botReply = new text.TextMessage(senderID, message);
         callSendAPI(botReply.message)
         break;
 
       case 'Tuna':
         message = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
-        botReply = new alternateObjects.TextMessage(senderID, message);
+        botReply = new text.TextMessage(senderID, message);
         callSendAPI(botReply.message);
         break;
 
       case 'Seven':
         message = "Seven is a hilarious monkey with a funny accent. She hails from Glaxonia, home of the Smithkleiniens"
-        botReply = new alternateObjects.TextMessage(senderID, message)
+        botReply = new text.TextMessage(senderID, message);
         callSendAPI(botReply.message)
         break;
 
@@ -195,20 +198,6 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
-}
-
-function sendButtonTest(recipientId){
-  var messageData = baseObjects.threeButtonMessage;
-  messageData.recipient.id = recipientId;
-  messageData.message.attachment.payload.text = "Cool! lets do that!";
-  messageData.message.attachment.payload.buttons[0].title = "I'm a longer title";
-  messageData.message.attachment.payload.buttons[0].payload = "oneeeee";
-  messageData.message.attachment.payload.buttons[1].title = "Continuing longer test";
-  messageData.message.attachment.payload.buttons[1].payload = "gmo";
-  messageData.message.attachment.payload.buttons[2].title = "Test";
-  messageData.message.attachment.payload.buttons[2].payload = "three";
-
-  callSendAPI(messageData);
 }
 
 function sendFetch(recipientId) {
@@ -338,11 +327,6 @@ function sendSevenPhoto(recipientId) {
   };
 
   callSendAPI(messageData);
-}
-
-function altObjectReply(recipientId){
-  r = new alternateObjects.TextMessage(recipientId, "GMO");
-  callSendAPI(r.message);
 }
 
 function buttonReply(recipientId) {
