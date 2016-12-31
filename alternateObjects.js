@@ -79,8 +79,8 @@ function ObjTwoButtonMessage(id, message, choiceOne, choiceTwo){
   };
 }
 //
-// function ObjThreeButtonMessage(){
-// }
+function ObjThreeButtonMessage(){
+}
 // var messageData = {
 //   recipient: {
 //     id: recipientId
