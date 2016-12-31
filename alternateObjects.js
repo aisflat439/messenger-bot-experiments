@@ -1,17 +1,39 @@
 function ObjTextMessage(id, text) {
-  this.id = id;
-  this.text = text;
-
   this.messageData = {
     recipient: {
-      id: this.id
+      id: id
     },
     message: {
-      text: this.text
+      text: text
     }
   }
 }
 
+function ObjPhotoButtonMessage(id, title, subtitle){
+    this.messageData = {
+      recipient: {
+        id: id
+      },
+        message: {
+          attachment: {
+            type: "template",
+            payload: {
+              template_type: "generic",
+              elements: [{
+                title: title,
+                subtitle: subtitle,
+                image_url: SERVER_URL + "/pup.jpg",
+                buttons: [{
+                  type: "postback",
+                  title: "Triggers a Postback",
+                  payload: "Puppers Pic!!!!"
+                }]
+              }]
+            }
+          }
+        }
+      };
+}
 
 // function photoButtonMessage(recipient){
 //   this.recipient = recipient;
@@ -49,3 +71,4 @@ function ObjTextMessage(id, text) {
 
 // exports.photoButtonMessage = photoButtonMessage;
 exports.ObjTextMessage = ObjTextMessage;
+exports.ObjPhotoButtonMessage = ObjPhotoButtonMessage;
