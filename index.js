@@ -108,7 +108,7 @@ function evaluatePostback(event){
           msg = "Where we heading to?"
           btn1 = new button.PostbackButton("Into the woods!", "adventure-woods");
           btn2 = new button.PostbackButton("To the snow!", "adventure-snow");
-          botReply = new button.TwoButtonMessage(senderID, msg, bt1, bt2);
+          botReply = new button.TwoButtonMessage(senderID, msg, btn1, btn2);
           callSendAPI(botReply.message);
         }, 2000);
         break;
