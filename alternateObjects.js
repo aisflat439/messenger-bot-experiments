@@ -78,36 +78,36 @@ function ObjTwoButtonMessage(id, message, choiceOne, choiceTwo){
     }
   };
 }
-
-function ObjThreeButtonMessage(){
-}
-var messageData = {
-  recipient: {
-    id: recipientId
-  },
-  message: {
-    attachment: {
-      type: "template",
-      payload: {
-        template_type: "button",
-        text: "Here's some info about me.",
-        buttons:[{
-          type: "web_url",
-          url: "https://www.github.com/aisflat439",
-          title: "Follow me on Github!"
-        }, {
-          type: "postback",
-          title: "Trigger Postback",
-          payload: "DEVELOPER_DEFINED_PAYLOAD"
-        }, {
-          type: "phone_number",
-          title: "Call Phone Number",
-          payload: "+16505551234"
-        }]
-      }
-    }
-  }
-};
+//
+// function ObjThreeButtonMessage(){
+// }
+// var messageData = {
+//   recipient: {
+//     id: recipientId
+//   },
+//   message: {
+//     attachment: {
+//       type: "template",
+//       payload: {
+//         template_type: "button",
+//         text: "Here's some info about me.",
+//         buttons:[{
+//           type: "web_url",
+//           url: "https://www.github.com/aisflat439",
+//           title: "Follow me on Github!"
+//         }, {
+//           type: "postback",
+//           title: "Trigger Postback",
+//           payload: "DEVELOPER_DEFINED_PAYLOAD"
+//         }, {
+//           type: "phone_number",
+//           title: "Call Phone Number",
+//           payload: "+16505551234"
+//         }]
+//       }
+//     }
+//   }
+// };
 
 
 exports.TextMessage = ObjTextMessage;
