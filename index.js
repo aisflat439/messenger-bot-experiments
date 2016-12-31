@@ -129,30 +129,37 @@ function evaluatePostback(event){
       case 'adventure-snow':
         botReply = new text.TextMessage(senderID, "Here we SNOW!!!");
         callSendAPI(botReply.message);
-        botReply = new image.PhotoOnlyMessage(senderID, "/snow_dog.jpg");
+        img = setPhoto();
+        botReply = new image.PhotoOnlyMessage(senderID, img);
         callSendAPI(botReply.message);
         setTimeout(function(){
           msg = "Yikes it's chilly, let's head inside!"
           btn = new button.PostbackButton("Okay", "back-inside");
           botReply = new button.OneButtonMessage(senderID, msg, btn);
+          callSendAPI(botReply.message);
         }, 2000);
         break;
 
       case 'adventure-woods':
-        botReply = new text.TextMessage(senderID, "Wooods")
-        callSendAPI(botReply.message)
+        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "woods.jpg", "Keep going?");
+        callSendAPI(p.messageData);
         break;
 
       case 'back-inside':
         botReply = new text.TextMessage(senderID, "Phew, it was cold. Good to get back on the couch.");
-        callSendAPI(botReply.message)
-        botReply = new image.PhotoOnlyMessage(senderID, "/snow_dog.jpg");
+        callSendAPI(botReply.message);
+        botReply = new image.PhotoOnlyMessage(senderID, "/couch.jpg");
         callSendAPI(botReply.message);
         break;
 
       case 'payload3':
-        botReply = new text.TextMessage(senderID, "You did it 3")
-        callSendAPI(botReply.message)
+        botReply = new text.TextMessage(senderID, "You did it 3");
+        callSendAPI(botReply.message);
+        break;
+
+      case 'Woods':
+        botReply = new text.TextMessage(senderID, "More woods stuff");
+        callSendAPI(botReply.message);
         break;
 
       default:
@@ -305,3 +312,8 @@ function callSendAPI(messageData) {
 app.listen(app.get('port'), function () {
   console.log('running on port', app.get('port'))
 })
+
+function setPhoto(){
+  var photo = Math.random() < 0.5 ? "/snow_dog2.jpg" : "/snow_dog.jpg";
+  return photo;
+}
