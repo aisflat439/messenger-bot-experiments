@@ -221,7 +221,7 @@ function sendDefaultButton(recipientId) {
   btn1 = button.PostbackButton("See my dogs", "dogs");
   btn2 = button.PostbackButton("Fetch", "fetch");
   btn3 = button.PostbackButton("Have an adventure", "adventure");
-  botReply = button.ThreeButtonMessage(senderID, "Hi! What should we do?", btn1, btn2, btn3);
+  botReply = button.ThreeButtonMessage(recipientId, "Hi! What should we do?", btn1, btn2, btn3);
   callSendAPI(botReply.message)
 
   // var messageData = {
