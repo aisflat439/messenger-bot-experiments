@@ -341,8 +341,8 @@ function setPhoto(){
 }
 
 function testReplies(msg){
-  wordsArray = ["Awww", "Cute", "Sweet"]
-  for each (word in wordsArray){
+  wordsArray = ["Awww", "Cute", "Sweet"];
+  for each (var word in wordsArray){
     if (msg.indexOf(word) == -1 ){
       return true;
     }
