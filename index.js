@@ -150,7 +150,7 @@ function receivedMessage(event) {
 
       case 'Puppers':
         // sendTestButton(senderID);
-        p = new alternateObjects.photoButtonMessage();
+        p = new alternateObjects.ObjPhotoButtonMessage();
         console.log(p.messageData);
         break;
 
@@ -191,36 +191,6 @@ function sendFetch(recipientId) {
 
   callSendAPI(messageData);
 }
-
-// function sendGenericDogs(recipientId){
-//   var messageData = {
-//   recipient: {
-//     id: recipientId
-//   },
-//   message: {
-//       attachment: {
-//         type: "template",
-//         payload: {
-//           template_type: "generic",
-//           elements: [{
-//             title: "Joey",
-//             subtitle: "Our first dog. Tres.",
-//             image_url: SERVER_URL + "/joey.jpg"
-//           },{
-//             title: "Tuna",
-//             subtitle: "Also known as Beguna",
-//             image_url: SERVER_URL + "/tuna.jpg"
-//           },{
-//             title: "Seven",
-//             subtitle: "SEVENS!",
-//             image_url: SERVER_URL + "/seven.jpg"
-//           }]
-//         }
-//       }
-//     }
-//   };
-//   callSendAPI(messageData);
-// }
 
 function sendAdventure(recipientId){
   var messageData = baseObjects.photoMessage;
