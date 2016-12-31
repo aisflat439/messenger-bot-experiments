@@ -166,6 +166,7 @@ function evaluatePostback(event){
         btn3 = new button.UrlButton("Heinz Wildlife Refuge", "https://www.fws.gov/refuge/john_heinz/");
         botReply = new button.ThreeButtonMessage(senderID, msg, btn3, btn2, btn1);
         callSendAPI(botReply.message);
+        setTimeout(function(){
           msg = "Ready to meet the dogs?"
           btn = new button.PostbackButton("Okay", "dogs");
           botReply = new button.OneButtonMessage(senderID, msg, btn);
