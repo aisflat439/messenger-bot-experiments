@@ -7,6 +7,7 @@ const baseObjects       = require('./baseObjects.js');
 const alternateObjects  = require('./alternateObjects.js');
 const buttonObjects     = require('./buttonObjects.js');
 const text              = require('./textMessageObjects.js');
+const image              = require('./photoMessageObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
@@ -82,17 +83,17 @@ function evaluatePostback(event){
 
     switch (postback.payload) {
       case 'dogs':
-        botReply = new alternateObjects.PhotoOnlyMessage(senderID, "/buddy.jpg")
+        botReply = new image.PhotoOnlyMessage(senderID, "/buddy.jpg")
         callSendAPI(botReply.message)
         break;
 
       case 'fetch':
-        botReply = new alternateObjects.PhotoOnlyMessage(senderID, "/pup.jpg")
+        botReply = new image.PhotoOnlyMessage(senderID, "/pup.jpg")
         callSendAPI(botReply.message)
         break;
 
       case 'adventure':
-        botReply = new alternateObjects.PhotoOnlyMessage(senderID, "/ready.jpg")
+        botReply = new image.PhotoOnlyMessage(senderID, "/ready.jpg")
         callSendAPI(botReply.message)
         break;
 
@@ -163,7 +164,7 @@ function receivedMessage(event) {
         break;
 
       case 'Photos':
-        m = new alternateObjects.PhotoOnlyMessage(senderID, "/seven.jpg");
+        m = new image.PhotoOnlyMessage(senderID, "/seven.jpg");
         callSendAPI(m.message);
         break;
 
@@ -198,22 +199,6 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
-}
-
-function sendFetch(recipientId) {
-  var messageData = baseObjects.photoMessage;
-  messageData.recipient.id = recipientId;
-  messageData.message.attachment.payload.url = SERVER_URL + "/pup.jpg";
-
-  callSendAPI(messageData);
-}
-
-function sendAdventure(recipientId){
-  var messageData = baseObjects.photoMessage;
-  messageData.recipientId = recipientId;
-  messageData.message.attachment.payload.url = SERVER_URL + "/ready.jpg"
-
-  callSendAPI(messageData);
 }
 
 function sendDefaultButton(recipientId) {
@@ -275,60 +260,6 @@ function sendTestButton(recipientId){
   callSendAPI(messageData);
 }
 
-function sendTunaPhoto(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "image",
-        payload: {
-          url: SERVER_URL + "/tuna.jpg"
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendJoeyPhoto(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "image",
-        payload: {
-          url: SERVER_URL + "/joey.jpg"
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendSevenPhoto(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "image",
-        payload: {
-          url: SERVER_URL + "/seven.jpg"
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
 function buttonReply(recipientId) {
   var messageData = {
     recipient: {
@@ -355,19 +286,6 @@ function buttonReply(recipientId) {
           }]
         }
       }
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendHelloWorld(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Hello World!"
     }
   };
 
