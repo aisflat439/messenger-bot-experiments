@@ -152,6 +152,7 @@ function receivedMessage(event) {
         // sendTestButton(senderID);
         p = new alternateObjects.ObjPhotoButtonMessage(senderID, "Here", "It words");
         console.log(p.messageData);
+        callSendAPI(p.messageData);
         break;
 
       default:
