@@ -141,7 +141,7 @@ function evaluatePostback(event){
         break;
 
       case 'adventure-woods':
-        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "woods.jpg", "Keep going?");
+        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "/woods.jpg", "Keep going?");
         callSendAPI(p.messageData);
         break;
 
@@ -158,8 +158,19 @@ function evaluatePostback(event){
         break;
 
       case 'Woods':
-        botReply = new text.TextMessage(senderID, "More woods stuff");
+        botReply = new text.TextMessage(senderID, "Woods are a nice place to visit. We have a few favorite places you should check out.");
         callSendAPI(botReply.message);
+        msg = "Learn more:"
+        btn1 = new button.UrlButton("Rose Tree Park", "http://www.co.delaware.pa.us/depts/parks/rosetree.html");
+        btn2 = new button.UrlButton("Ridley Creek St. Park", "http://www.dcnr.state.pa.us/stateparks/findapark/ridleycreek/");
+        btn3 = new button.UrlButton("Heinz Wildlife Refuge", "https://www.fws.gov/refuge/john_heinz/");
+        botReply = new button.ThreeButtonMessage(senderID, msg, btn3, btn2, btn1);
+        callSendAPI(botReply.message);
+          msg = "Ready to meet the dogs?"
+          btn = new button.PostbackButton("Okay", "dogs");
+          botReply = new button.OneButtonMessage(senderID, msg, btn);
+          callSendAPI(botReply.message);
+        }, 3000);
         break;
 
       default:
