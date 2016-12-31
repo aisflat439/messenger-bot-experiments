@@ -1,3 +1,23 @@
+function TwoButtonMessage(id, message, buttonOne){
+  this.message = {
+    recipient: {
+      id: id
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: message,
+          buttons:[
+            buttonOne.fields
+          ]
+        }
+      }
+    }
+  };
+}
+
 function TwoButtonMessage(id, message, buttonOne, buttonTwo){
   this.message = {
     recipient: {
@@ -76,5 +96,7 @@ exports.UrlButton           = UrlButton;
 exports.PostbackButton      = PostbackButton;
 exports.CallButton          = CallButton;
 exports.ShareButton         = ShareButton;
+
+exports.OneButtonMessage    = OneButtonMessage;
 exports.TwoButtonMessage    = TwoButtonMessage;
 exports.ThreeButtonMessage  = ThreeButtonMessage;
