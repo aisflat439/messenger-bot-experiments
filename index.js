@@ -6,6 +6,7 @@ const app = express()
 const baseObjects       = require('./baseObjects.js');
 const alternateObjects  = require('./alternateObjects.js');
 const buttonObjects     = require('./buttonObjects.js');
+const text              = require('./textMessageObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
@@ -128,11 +129,13 @@ function receivedMessage(event) {
         break;
 
       case 'hello':
-        sendHelloWorld(senderID);
+        message = "Hello World!"
+        botReply = new text.TextMessage(senderID, message);
+        callSendAPI(botReply.message)
         break;
 
       case 'Test':
-        m = "Two button message!";
+        m = "second 2 button message!";
         b1 = new buttonObjects.urlButton("sample", "https://www.facebook.com");
         b2 = new buttonObjects.urlButton("sample", "https://www.facebook.com");
         botReply = new buttonObjects.testButton(senderID, m, b1, b2);
