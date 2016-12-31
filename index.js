@@ -70,10 +70,10 @@ app.post('/webhook', function (req, res) {
 });
 
 function evaluatePostback(event){
-  console.log("-----------Something happened------------");
-  console.log(event.postback);
-  console.log("-----------postback------------");
-  console.log(typeof(event.postback));
+  // console.log("-----------Something happened------------");
+  // console.log(event.postback);
+  // console.log("-----------postback------------");
+  // console.log(typeof(event.postback));
 
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
@@ -88,13 +88,18 @@ function evaluatePostback(event){
         break;
 
       case 'fetch':
-        botReply = new image.PhotoOnlyMessage(senderID, "/pup.jpg")
-        callSendAPI(botReply.message)
+        botReply = new text.TextMessage(senderID, "Great! Let me go get my ball");
+        callSendAPI(botReply.message);
+        botReply = new image.PhotoOnlyMessage(senderID, "/pup.jpg");
+        callSendAPI(botReply.message);
+        btn = new button.PostbackButton("Should we check out the park?", "payload1");
+        botReply = new button.OneButtonMessage(senderID, btn);
+        callSendAPI(botReply);
         break;
 
       case 'adventure':
-        botReply = new image.PhotoOnlyMessage(senderID, "/ready.jpg")
-        callSendAPI(botReply.message)
+        botReply = new image.PhotoOnlyMessage(senderID, "/ready.jpg");
+        callSendAPI(botReply.message);
         break;
 
       case 'payload1':
@@ -164,9 +169,9 @@ function receivedMessage(event) {
 
       case 'Two':
         m = "Two button message!";
-        bOne = "First Button";
-        bTwo = "Secon Button";
-        botReply = new alternateObjects.TwoButtonMessage(senderID, m, bOne, bTwo)
+        b1 = new button.PostbackButton("option1", "payload1");
+        b2 = new button.PostbackButton("option2", "payload2");
+        botReply = new button.TwoButtonMessage(senderID, m, b1, b2)
         callSendAPI(botReply.message);
         break;
 
@@ -235,36 +240,6 @@ function buttonReply(recipientId) {
 
   botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
   callSendAPI(botReply.message);
-  //
-  // var messageData = {
-  //   recipient: {
-  //     id: recipientId
-  //   },
-  //   message: {
-  //     attachment: {
-  //       type: "template",
-  //       payload: {
-  //         template_type: "button",
-  //         text: "Here's some info about me.",
-  //         buttons:[{
-  //           type: "web_url",
-  //           url: "https://www.github.com/aisflat439",
-  //           title: "Follow me on Github!"
-  //         }, {
-  //           type: "postback",
-  //           title: "Trigger Postback",
-  //           payload: "DEVELOPER_DEFINED_PAYLOAD"
-  //         }, {
-  //           type: "phone_number",
-  //           title: "Call Phone Number",
-  //           payload: "+16505551234"
-  //         }]
-  //       }
-  //     }
-  //   }
-  // };
-  //
-  // callSendAPI(messageData);
 }
 
 function callSendAPI(messageData) {
@@ -279,8 +254,8 @@ function callSendAPI(messageData) {
       var recipientId = body.recipient_id;
       var messageId = body.message_id;
 
-      console.log("Successfully sent generic message with id %s to recipient %s",
-        messageId, recipientId);
+      // console.log("Successfully sent generic message with id %s to recipient %s",
+        // messageId, recipientId);
     } else {
       console.error("Unable to send message.");
       console.error(response);

@@ -16,4 +16,4 @@ function PhotoOnlyMessage(id, photoURL){
   };
 }
 
-exports.PhotoOnlyMessage = PhotoOnlyMessage;
+exports.PhotoOnlyMessage    = PhotoOnlyMessage;
