@@ -80,7 +80,7 @@ function ObjTwoButtonMessage(id, message, choiceOne, choiceTwo){
 }
 //
 function ObjThreeButtonMessage(id, title, choiceOne, choiceTwo, choiceThree){
-  this.messageData = {
+  this.message = {
     recipient: {
       id: id
     },
