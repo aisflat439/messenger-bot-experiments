@@ -82,9 +82,41 @@ function evaluatePostback(event){
   if  (postback){
 
     switch (postback.payload) {
+      id, title, subtitle, img, btnTitle, payload
+      // senderID, "Woods", "We love a good woods adventure.", "/woodss.jpg", "Keep going?");
       case 'dogs':
-        botReply = new image.PhotoOnlyMessage(senderID, "/buddy.jpg")
-        callSendAPI(botReply.message)
+        title = "Joey";
+        subtitle = "This is Joey, She's tres adorable.";
+        img = "/joey.jpg";
+        btnTitle = "Ready for Tuna?";
+        payload = "dogs-one";
+        p = new button.OneButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
+        callSendAPI(p.messageData);
+        break;
+
+      case 'dogs-one':
+        title = "Tuna";
+        subtitle = "This is Tuna, he's a hit with all the ladies.";
+        img = "/tuna.jpg";
+        btnTitle = "Okay!";
+        payload = "dogs-two";
+        p = new button.OneButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
+        callSendAPI(p.messageData);
+        break;
+
+      case 'dogs-two':
+        title = "Seven";
+        subtitle = "Seven is from Glaxonia home of the Smithkleiniens.";
+        img = "/seven.jpg";
+        btnTitle = "Okay!";
+        payload = "dogs-happy";
+        p = new button.OneButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
+        callSendAPI(p.messageData);
+        break;
+
+      case 'dogs-happy':
+        botReply = new photo.PhotoOnlyMessage(senderID, "/happy_dogs.jpg");
+        callSendAPI(botReply.message);
         break;
 
       case 'fetch':
@@ -141,7 +173,7 @@ function evaluatePostback(event){
         break;
 
       case 'adventure-woods':
-        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "/woodss.jpg", "Keep going?");
+        p = new alternateObjects.PhotoButtonMessage(senderID, "Woods", "We love a good woods adventure.", "/woodss.jpg", "Keep going?", "Woods");
         callSendAPI(p.messageData);
         break;
 
@@ -204,11 +236,6 @@ function receivedMessage(event) {
     }
 
     switch (messageText) {
-      case 'OMG':
-        message = "GMO";
-        botReply = new text.TextMessage(senderID, message);
-        callSendAPI(botReply.message);
-        break;
 
       case 'Button':
         buttonReply(senderID);
@@ -341,7 +368,7 @@ function setPhoto(){
 }
 
 function testReplies(msg){
-  wordsArray = ["Awww", "Cute", "Sweet"];
+  wordsArray = ["Awww", "Cute", "Sweet", "OMG", "cute", "Omg"];
   len = wordsArray.length
   for (var i = 0; i < len; i++){
     if (msg.indexOf(wordsArray[i]) !== -1 ){
