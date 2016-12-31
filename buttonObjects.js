@@ -72,9 +72,9 @@ function ShareButton(){
 }
 
 
-exports.urlButton = UrlButton;
-exports.postbackButton = PostbackButton;
-exports.callButton = CallButton;
-exports.shareButton = ShareButton;
-exports.testButton = TwoButtonMessage;
-exports.threeButtonMessage = ThreeButtonMessage;
+exports.UrlButton           = UrlButton;
+exports.PostbackButton      = PostbackButton;
+exports.CallButton          = CallButton;
+exports.ShareButton         = ShareButton;
+exports.TwoButtonMessage    = TwoButtonMessage;
+exports.ThreeButtonMessage  = ThreeButtonMessage;
