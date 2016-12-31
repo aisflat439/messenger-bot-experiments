@@ -14,7 +14,7 @@ function ObjTextMessage(id, text) {
 function ObjPhotoOnlyMessage(id, photoURL){
   this.messageData = {
     recipient: {
-      id: recipientId
+      id: id
     },
     message: {
       attachment: {
