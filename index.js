@@ -174,7 +174,7 @@ function receivedMessage(event) {
         b1 = new button.postbackButton("option1", "payload1");
         b2 = new button.postbackButton("option2", "payload2");
         b3 = new button.postbackButton("option3", "payload3");
-        botReply = new button.ThreeButtonMessage(senderID, m, bOne, bTwo, bThree)
+        botReply = new button.ThreeButtonMessage(senderID, m, b1, b2, b3)
         callSendAPI(botReply.message);
         break;
 
