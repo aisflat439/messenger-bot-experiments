@@ -139,13 +139,13 @@ function receivedMessage(event) {
 
       case 'Joey':
         message = "Joey is practically perfect in every way. She was the lady's first dog."
-        botReply(senderID, message)
+        botReply = new alternateObjects.TextMessage(senderID, message)
         callSendAPI(botReply.message)
         break;
 
       case 'Tuna':
         message = "That's tuna, he's my buddy. He's super magical. His middle name is Falkor like the dragon from 'The Never Ending Story' because he's also super dragony."
-        botReply(senderID, message);
+        botReply = new alternateObjects.TextMessage(senderID, message);
         callSendAPI(botReply.message);
         break;
 
