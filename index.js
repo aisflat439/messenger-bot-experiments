@@ -5,9 +5,9 @@ const app = express()
 
 const baseObjects       = require('./baseObjects.js');
 const alternateObjects  = require('./alternateObjects.js');
-const buttonObjects     = require('./buttonObjects.js');
+const button            = require('./buttonObjects.js');
 const text              = require('./textMessageObjects.js');
-const image              = require('./photoMessageObjects.js');
+const image             = require('./photoMessageObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
@@ -97,6 +97,21 @@ function evaluatePostback(event){
         callSendAPI(botReply.message)
         break;
 
+      case 'payload1':
+        botReply = new text.TextMessage(senderID, "You did it")
+        callSendAPI(botReply.message)
+        break;
+
+      case 'payload2':
+        botReply = new text.TextMessage(senderID, "You did it 2")
+        callSendAPI(botReply.message)
+        break;
+
+      case 'payload3':
+        botReply = new text.TextMessage(senderID, "You did it 3")
+        callSendAPI(botReply.message)
+        break;
+
       default:
         sendSeven(senderID);
         break;
@@ -110,9 +125,9 @@ function receivedMessage(event) {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-  console.log("Received message for user %d and page %d at %d with message:",
-    senderID, recipientID, timeOfMessage);
-  console.log(JSON.stringify(message));
+  // console.log("Received message for user %d and page %d at %d with message:",
+  //   senderID, recipientID, timeOfMessage);
+  // console.log(JSON.stringify(message));
 
   var messageId = message.mid;
 
@@ -140,9 +155,9 @@ function receivedMessage(event) {
 
       case 'Test':
         m = "second 2 button message!";
-        b1 = new buttonObjects.urlButton("sample", "https://www.facebook.com");
-        b2 = new buttonObjects.urlButton("sample", "https://www.facebook.com");
-        botReply = new buttonObjects.testButton(senderID, m, b1, b2);
+        b1 = new button.urlButton("sample", "https://www.facebook.com");
+        b2 = new button.urlButton("sample", "https://www.facebook.com");
+        botReply = new button.testButton(senderID, m, b1, b2);
         callSendAPI(botReply.message);
         break;
 
@@ -156,10 +171,10 @@ function receivedMessage(event) {
 
       case 'Three':
         m = "Three button message!";
-        bOne = "First Button";
-        bTwo = "Second Button";
-        bThree = "Third Button";
-        botReply = new alternateObjects.ThreeButtonMessage(senderID, m, bOne, bTwo, bThree)
+        b1 = new button.postbackButton("option1", "payload1");
+        b2 = new button.postbackButton("option2", "payload2");
+        b3 = new button.postbackButton("option3", "payload3");
+        botReply = new button.ThreeButtonMessage(senderID, m, bOne, bTwo, bThree)
         callSendAPI(botReply.message);
         break;
 
