@@ -1,6 +1,6 @@
 const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com"
 
-function ObjPhotoButtonMessage(id, title, subtitle, img, btnTitle){
+function ObjPhotoButtonMessage(id, title, subtitle, img, btnTitle, payload){
     this.messageData = {
       recipient: {
         id: id
@@ -17,7 +17,7 @@ function ObjPhotoButtonMessage(id, title, subtitle, img, btnTitle){
                 buttons: [{
                   type: "postback",
                   title: btnTitle,
-                  payload: title
+                  payload: payload
                 }]
               }]
             }
