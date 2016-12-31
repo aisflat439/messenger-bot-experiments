@@ -217,35 +217,42 @@ function receivedMessage(event) {
 }
 
 function sendDefaultButton(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: "Hi! What should we do?",
-          buttons:[{
-            type: "postback",
-            title: "See my dogs",
-            payload: "dogs"
-          }, {
-            type: "postback",
-            title: "Fetch",
-            payload: "fetch"
-          }, {
-            type: "postback",
-            title: "Have an adventure",
-            payload: "adventure"
-          }]
-        }
-      }
-    }
-  };
 
-  callSendAPI(messageData);
+  btn1 = button.PostbackButton("See my dogs", "dogs");
+  btn2 = button.PostbackButton("Fetch", "fetch");
+  btn3 = button.PostbackButton("Have an adventure", "adventure");
+  botReply = button.ThreeButtonMessage(senderID, "Hi! What should we do?", btn1, btn2, btn3);
+  callSendAPI(botReply.message)
+
+  // var messageData = {
+  //   recipient: {
+  //     id: recipientId
+  //   },
+  //   message: {
+  //     attachment: {
+  //       type: "template",
+  //       payload: {
+  //         template_type: "button",
+  //         text: "Hi! What should we do?",
+  //         buttons:[{
+  //           type: "postback",
+  //           title: "See my dogs",
+  //           payload: "dogs"
+  //         }, {
+  //           type: "postback",
+  //           title: "Fetch",
+  //           payload: "fetch"
+  //         }, {
+  //           type: "postback",
+  //           title: "Have an adventure",
+  //           payload: "adventure"
+  //         }]
+  //       }
+  //     }
+  //   }
+  // };
+  //
+  // callSendAPI(messageData);
 }
 
 function sendTestButton(recipientId){
