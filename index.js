@@ -155,9 +155,9 @@ function receivedMessage(event) {
 
       case 'Test':
         m = "second 2 button message!";
-        b1 = new button.urlButton("sample", "https://www.facebook.com");
-        b2 = new button.urlButton("sample", "https://www.facebook.com");
-        botReply = new button.testButton(senderID, m, b1, b2);
+        b1 = new button.UrlButton("sample", "https://www.facebook.com");
+        b2 = new button.UrlButton("sample", "https://www.facebook.com");
+        botReply = new button.TwoButtonMessage(senderID, m, b1, b2);
         callSendAPI(botReply.message);
         break;
 
@@ -171,9 +171,9 @@ function receivedMessage(event) {
 
       case 'Three':
         m = "Three button message!";
-        b1 = new button.postbackButton("option1", "payload1");
-        b2 = new button.postbackButton("option2", "payload2");
-        b3 = new button.postbackButton("option3", "payload3");
+        b1 = new button.PostbackButton("option1", "payload1");
+        b2 = new button.PostbackButton("option2", "payload2");
+        b3 = new button.PostbackButton("option3", "payload3");
         botReply = new button.ThreeButtonMessage(senderID, m, b1, b2, b3)
         callSendAPI(botReply.message);
         break;
