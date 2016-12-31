@@ -134,7 +134,7 @@ function receivedMessage(event) {
         m = "Two button message!";
         bOne = "First Button";
         bTwo = "Secon Button";
-        botReply = new alternateObjects.TwoButtonMessage(senderID, message, bOne, bTwo)
+        botReply = new alternateObjects.TwoButtonMessage(senderID, m, bOne, bTwo)
         callSendAPI(botReply.message);
         break;
 
@@ -143,11 +143,12 @@ function receivedMessage(event) {
         bOne = "First Button";
         bTwo = "Second Button";
         bThree = "Third Button";
-        botReply = new alternateObjects.ThreeButtonMessage(senderID, message, bOne, bTwo, bThree)
+        botReply = new alternateObjects.ThreeButtonMessage(senderID, m, bOne, bTwo, bThree)
         callSendAPI(botReply.message);
         break;
 
       case 'Test':
+        m = "Three button message!";
         botReply = new alternateObjects.ThreeButtonMessage(senderID)
         callSendAPI(botReply.message);
         break;

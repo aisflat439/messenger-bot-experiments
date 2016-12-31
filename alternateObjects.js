@@ -79,7 +79,7 @@ function ObjTwoButtonMessage(id, message, choiceOne, choiceTwo){
   };
 }
 //
-function ObjThreeButtonMessage(id){
+function ObjThreeButtonMessage(id, message, choiceOne, choiceTwo, choiceThree){
   this.message = {
     recipient: {
       id: id
@@ -93,14 +93,14 @@ function ObjThreeButtonMessage(id){
           buttons:[{
             type: "web_url",
             url: "https://www.github.com/aisflat439",
-            title: "Follow me on Github!"
+            title: choiceOne
           }, {
             type: "postback",
-            title: "Trigger Postback",
+            title: choiceTwo,
             payload: "DEVELOPER_DEFINED_PAYLOAD"
           }, {
             type: "phone_number",
-            title: "Call Phone Number",
+            title: choiceThree,
             payload: "+16505551234"
           }]
         }
