@@ -1,4 +1,4 @@
-function TwoButtonMessage(id, message, buttonOne){
+function OneButtonMessage(id, message, buttonOne){
   this.message = {
     recipient: {
       id: id
