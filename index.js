@@ -344,7 +344,7 @@ function testReplies(msg){
   wordsArray = ["Awww", "Cute", "Sweet"];
   len = wordsArray.length
   for (var i = 0; i < len; i++){
-    if (msg.indexOf(wordsArray[i]) == -1 ){
+    if (msg.indexOf(wordsArray[i]) !== -1 ){
       return true;
     }
   }
