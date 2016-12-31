@@ -147,7 +147,7 @@ function receivedMessage(event) {
         callSendAPI(botReply.message);
         break;
 
-      case 'Test'
+      case 'Test':
         botReply = new alternateObjects.ThreeButtonMessage(senderID)
         callSendAPI(botReply.message);
         break;
