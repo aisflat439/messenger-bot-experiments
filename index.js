@@ -114,11 +114,11 @@ function evaluatePostback(event){
           callSendAPI(botReply.message);
         }, 1000);
         setTimeout(function(){
-          btn1 = button.PostbackButton("Dogs", "dogs");
-          btn2 = button.PostbackButton("Adventure", "adventure");
+          btn1 = new button.PostbackButton("Dogs", "dogs");
+          btn2 = new button.PostbackButton("Adventure", "adventure");
           botReply = new button.TwoButtonMessage(senderID, "What's next? Meet the dogs or an adventure?", btn1, btn2);
           callSendAPI(botReply.message);
-        }, 2000)
+        }, 2000);
         break;
 
       case 'payload2':
