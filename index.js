@@ -92,8 +92,8 @@ function evaluatePostback(event){
         callSendAPI(botReply.message);
         botReply = new image.PhotoOnlyMessage(senderID, "/pup.jpg");
         callSendAPI(botReply.message);
-        btn = new button.PostbackButton("Should we check out the park?", "payload1");
-        botReply = new button.OneButtonMessage(senderID, btn);
+        btn = new button.PostbackButton("Okay!", "payload1");
+        botReply = new button.OneButtonMessage(senderID, "Let's go check out the park.", btn);
         callSendAPI(botReply.message);
         break;
 
