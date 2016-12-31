@@ -150,7 +150,7 @@ function receivedMessage(event) {
 
       case 'Puppers':
         // sendTestButton(senderID);
-        p = new alternateObjects.ObjPhotoButtonMessage();
+        p = new alternateObjects.ObjPhotoButtonMessage(senderID, "Here", "It words");
         console.log(p.messageData);
         break;
 
