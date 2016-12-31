@@ -86,7 +86,7 @@ function evaluatePostback(event){
       case 'dogs':
         title = "Joey";
         subtitle = "This is Joey, She's tres adorable.";
-        img = "/joey.jpg";
+        img = "/joey_.jpg";
         btnTitle = "Ready for Tuna?";
         payload = "dogs-one";
         p = new alternateObjects.PhotoButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
@@ -96,7 +96,7 @@ function evaluatePostback(event){
       case 'dogs-one':
         title = "Tuna";
         subtitle = "This is Tuna, he's a hit with all the ladies.";
-        img = "/tuna.jpg";
+        img = "/tuna_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-two";
         p = new alternateObjects.PhotoButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
@@ -106,7 +106,7 @@ function evaluatePostback(event){
       case 'dogs-two':
         title = "Seven";
         subtitle = "Seven is from Glaxonia home of the Smithkleiniens.";
-        img = "/seven.jpg";
+        img = "/seven_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-happy";
         p = new alternateObjects.PhotoButtonMessage(senderID, title, subtitle, img, btnTitle, payload);
@@ -114,7 +114,7 @@ function evaluatePostback(event){
         break;
 
       case 'dogs-happy':
-        botReply = new photo.PhotoOnlyMessage(senderID, "/happy_dogs.jpg");
+        botReply = new image.PhotoOnlyMessage(senderID, "/happy_dogs.jpg");
         callSendAPI(botReply.message);
         break;
 
