@@ -342,8 +342,9 @@ function setPhoto(){
 
 function testReplies(msg){
   wordsArray = ["Awww", "Cute", "Sweet"];
-  for each (var word in wordsArray){
-    if (msg.indexOf(word) == -1 ){
+  len = wordsArray.length
+  for (var i = 0; i < len; i++){
+    if (msg.indexOf(wordsArray[i]) == -1 ){
       return true;
     }
   }
