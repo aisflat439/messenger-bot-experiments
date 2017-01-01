@@ -116,6 +116,9 @@ function evaluatePostback(event){
       case 'dogs-happy':
         botReply = new image.PhotoOnlyMessage(senderID, "/happy_dogs.jpg");
         callSendAPI(botReply.message);
+        setTimeout(function(){
+          sendDefaultButton(senderID, "What's next?");
+        }, 2000);
         break;
 
       case 'fetch':
@@ -314,12 +317,12 @@ function receivedMessage(event) {
   }
 }
 
-function sendDefaultButton(recipientId) {
+function sendDefaultButton(recipientId, msg = "Hi, What should we do?") {
   btn1 = new button.PostbackButton("See my dogs", "dogs");
   btn2 = new button.PostbackButton("Fetch", "fetch");
   btn3 = new button.PostbackButton("Have an adventure", "adventure");
 
-  botReply = new button.ThreeButtonMessage(recipientId, "Hi! What should we do?", btn1, btn2, btn3);
+  botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
   callSendAPI(botReply.message)
 }
 
