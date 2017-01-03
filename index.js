@@ -184,6 +184,9 @@ function evaluatePostback(event){
         callSendAPI(botReply.message);
         botReply = new image.PhotoOnlyMessage(senderID, "/couch.jpg");
         callSendAPI(botReply.message);
+        setTimeout(function(){
+          sendDefaultButton(senderID, "What now?");
+        }, 2000);
         break;
 
       case 'payload3':
