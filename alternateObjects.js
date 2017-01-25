@@ -1,4 +1,4 @@
-const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com"
+const SERVER_URL = process.env.SERVER_URL
 
 function ObjPhotoButtonMessage(id, title, subtitle, img, btnTitle, payload){
     this.messageData = {
