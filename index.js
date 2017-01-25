@@ -11,8 +11,8 @@ const image             = require('./photoMessageObjects.js');
 
 const token = process.env.FB_VERIFY_TOKEN
 const access = process.env.FB_ACCESS_TOKEN
-
-const SERVER_URL = "https://desolate-meadow-32257.herokuapp.com"
+const phone_number = process.env.PHONE_NUMBER
+const SERVER_URL = process.env.SERVER_URL
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -335,7 +335,7 @@ function buttonReply(recipientId) {
 
   btn1 = new button.UrlButton("Follow me on Github!", "https://www.github.com/aisflat439");
   btn2 = new button.PostbackButton("Have an adventure!", "adventure");
-  btn3 = new button.CallButton("Call Phone Number", "6103226109");
+  btn3 = new button.CallButton("Call Phone Number", phone_number);
 
   botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
   callSendAPI(botReply.message);
