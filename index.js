@@ -322,7 +322,7 @@ function receivedMessage(event) {
 
 function sendDefaultButton(recipientId, msg = "Hi, What should we do?") {
   message = "Thanks for checking out my bot. This is an experiment I created to learn about Node.js and conversational UI."
-  botReply = new text.TextMessage(senderID, message);
+  botReply = new text.TextMessage(recipientId, message);
   callSendAPI(botReply.message);
 
   setTimeout(function(){
