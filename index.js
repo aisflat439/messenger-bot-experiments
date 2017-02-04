@@ -85,7 +85,7 @@ function evaluatePostback(event){
 
       case 'dogs':
         title = "Joey";
-        subtitle = "This is Joey, She's tres adorable.";
+        subtitle = "This is Joey. She is a Cairn Terrier, like Toto from the Wizard of Oz.";
         img = "/joey_.jpg";
         btnTitle = "Ready for Tuna?";
         payload = "dogs-one";
@@ -95,7 +95,7 @@ function evaluatePostback(event){
 
       case 'dogs-one':
         title = "Tuna";
-        subtitle = "This is Tuna, he's a hit with all the ladies.";
+        subtitle = "Here is Tuna. It seems like he's part Jack Russel and part Bichon. He's a lot of fun no matter what kind of dog he is.";
         img = "/tuna_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-two";
@@ -105,7 +105,7 @@ function evaluatePostback(event){
 
       case 'dogs-two':
         title = "Seven";
-        subtitle = "Seven is from Glaxonia home of the Smithkleiniens.";
+        subtitle = "Seven spent the first five years of her life as a labratory beagle. Now she is enjoying 'retirement'.";
         img = "/seven_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-happy";
