@@ -105,7 +105,7 @@ function evaluatePostback(event){
 
       case 'dogs-two':
         title = "Seven";
-        subtitle = "Seven spent her first 5 years as a labratory beagle. Now she is enjoying 'retirement'.";
+        subtitle = "Seven spent her first 5 years as a labratory beagle. Now she's 'retired'.";
         img = "/seven_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-happy";
@@ -321,12 +321,18 @@ function receivedMessage(event) {
 }
 
 function sendDefaultButton(recipientId, msg = "Hi, What should we do?") {
-  btn1 = new button.PostbackButton("See my dogs", "dogs");
-  btn2 = new button.PostbackButton("Fetch", "fetch");
-  btn3 = new button.PostbackButton("Have an adventure", "adventure");
+  message = "Thanks for checking out my bot. This is an experiment I created to learn about Node.js and conversational UI."
+  botReply = new text.TextMessage(senderID, message);
+  callSendAPI(botReply.message);
 
-  botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
-  callSendAPI(botReply.message)
+  setTimeout(function(){
+    btn1 = new button.PostbackButton("See my dogs", "dogs");
+    btn2 = new button.PostbackButton("Fetch", "fetch");
+    btn3 = new button.PostbackButton("Have an adventure", "adventure");
+
+    botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
+    callSendAPI(botReply.message)
+  }, 1000);
 }
 
 function buttonReply(recipientId) {
