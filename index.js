@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+require('console.table');
+
 const baseObjects       = require('./baseObjects.js');
 const alternateObjects  = require('./alternateObjects.js');
 const button            = require('./buttonObjects.js');
