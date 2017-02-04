@@ -230,8 +230,7 @@ function receivedMessage(event) {
   var message = event.message;
 
   console.log("----msg-----");
-  console.log(event);
-  console.table(event);
+  console.table(event.sender);
   console.log("----msg-----");
 
   // console.log("Received message for user %d and page %d at %d with message:",
