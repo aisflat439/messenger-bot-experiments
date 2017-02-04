@@ -95,7 +95,7 @@ function evaluatePostback(event){
 
       case 'dogs-one':
         title = "Tuna";
-        subtitle = "Here is Tuna. It seems like he's part Jack Russel and part Bichon. He's a lot of fun no matter what kind of dog he is.";
+        subtitle = "Here is Tuna. He's probably a Jack Russel and Bichon mix. He's a lot of fun.";
         img = "/tuna_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-two";
@@ -105,7 +105,7 @@ function evaluatePostback(event){
 
       case 'dogs-two':
         title = "Seven";
-        subtitle = "Seven spent the first five years of her life as a labratory beagle. Now she is enjoying 'retirement'.";
+        subtitle = "Seven spent her first 5 years as a labratory beagle. Now she is enjoying 'retirement'.";
         img = "/seven_.jpg";
         btnTitle = "Okay!";
         payload = "dogs-happy";
