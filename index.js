@@ -74,6 +74,8 @@ function evaluatePostback(event){
   // console.log(event.postback);
   // console.log("-----------postback------------");
   // console.log(typeof(event.postback));
+  console.log(event);
+  console.table(event);
 
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
@@ -224,6 +226,11 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+
+  console.log("----msg-----");
+  console.log(event);
+  console.table(event);
+  console.log("----msg-----");
 
   // console.log("Received message for user %d and page %d at %d with message:",
   //   senderID, recipientID, timeOfMessage);
