@@ -258,7 +258,7 @@ function receivedMessage(event) {
       case 'github':
         m = 'Here is the link to the github repo for this bot.'
         b1 = new button.UrlButton("Github", "https://github.com/aisflat439/messenger-bot-experiments");
-        botReply = new button.TwoButtonMessage(senderID, m, b1);
+        botReply = new button.OneButtonMessage(senderID, m, b1);
         callSendAPI(botReply.message);
         break;
 
