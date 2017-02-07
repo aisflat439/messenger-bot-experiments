@@ -254,6 +254,14 @@ function receivedMessage(event) {
         buttonReply(senderID);
         break;
 
+      case 'Github':
+      case 'github':
+        m = 'Here is the link to the github repo for this bot.'
+        b1 = new button.UrlButton("Github", "https://github.com/aisflat439/messenger-bot-experiments");
+        botReply = new button.TwoButtonMessage(senderID, m, b1);
+        callSendAPI(botReply.message);
+        break;
+
       case 'hello':
         message = "Hello World!"
         botReply = new text.TextMessage(senderID, message);
@@ -334,13 +342,19 @@ function sendDefaultButton(recipientId, msg = "Hi, What should we do?") {
   callSendAPI(botReply.message);
 
   setTimeout(function(){
+    message = "Type github at any time to see check out the code for this messenger bot."
+    botReply = new text.TextMessage(recipientId, message);
+    callSendAPI(botReply.message);
+  }, 1000);
+
+  setTimeout(function(){
     btn1 = new button.PostbackButton("See my dogs", "dogs");
     btn2 = new button.PostbackButton("Fetch", "fetch");
     btn3 = new button.PostbackButton("Have an adventure", "adventure");
 
     botReply = new button.ThreeButtonMessage(recipientId, msg, btn1, btn2, btn3);
     callSendAPI(botReply.message)
-  }, 1000);
+  }, 2000);
 }
 
 function buttonReply(recipientId) {
