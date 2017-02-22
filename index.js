@@ -337,15 +337,17 @@ function receivedMessage(event) {
 }
 
 function sendDefaultButton(recipientId, msg = "Hi, What should we do?") {
-  message = "Thanks for checking out my bot. This is an experiment I created to learn about Node.js and conversational UI."
-  botReply = new text.TextMessage(recipientId, message);
-  callSendAPI(botReply.message);
-
-  setTimeout(function(){
-    message = "Type github at any time to see check out the code for this messenger bot."
+  if (msg === "Hi, What should we do?"){
+    message = "Thanks for checking out my bot. This is an experiment I created to learn about Node.js and conversational UI."
     botReply = new text.TextMessage(recipientId, message);
     callSendAPI(botReply.message);
-  }, 1000);
+
+    setTimeout(function(){
+      message = "Type github at any time to see check out the code for this messenger bot."
+      botReply = new text.TextMessage(recipientId, message);
+      callSendAPI(botReply.message);
+    }, 1000);
+  }
 
   setTimeout(function(){
     btn1 = new button.PostbackButton("See my dogs", "dogs");
