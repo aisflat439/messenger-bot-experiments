@@ -11,8 +11,8 @@ const button            = require('./buttonObjects.js');
 const text              = require('./textMessageObjects.js');
 const image             = require('./photoMessageObjects.js');
 
-const token = process.env.FB_VERIFY_TOKEN
-const access = process.env.FB_ACCESS_TOKEN
+const token = process.env.FACEBOOK_AISFLATBIOBOT_VERIFY_TOKEN
+const access = process.env.FACEBOOK_AISFLATBIOBOT_ACCESS_TOKEN
 const phone_number = process.env.PHONE_NUMBER
 const SERVER_URL = process.env.SERVER_URL
 
