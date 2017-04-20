@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 
-app.get('/', function (req, res) {
-    res.send('OMGGMO')
+app.get('/', function(req, res) {
+    res.send('OMGGMO');
 })
 
 app.get('/assets', function(){
