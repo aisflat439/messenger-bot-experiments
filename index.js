@@ -434,18 +434,6 @@ function setPersitentMenu() {
           "type":"postback",
           "title":"Start a New Order",
           "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
-        },
-        {
-          "type":"web_url",
-          "title":"Find me on Linked In",
-          "url":"https://www.linkedin.com/in/devin-fitzsimons-1b9b4b66/",
-          "webview_height_ratio": "full",
-          "messenger_extensions": true
-        },
-        {
-          "type":"web_url",
-          "title":"View Website",
-          "url":"https://aisflat439.github.io/"
         }
       ]
     }
@@ -460,3 +448,18 @@ function setPersitentMenu() {
       }
     });
   }
+
+
+  // ,
+  // {
+  //   "type":"web_url",
+  //   "title":"Find me on Linked In",
+  //   "url":"https://www.linkedin.com/in/devin-fitzsimons-1b9b4b66/",
+  //   "webview_height_ratio": "full",
+  //   "messenger_extensions": true
+  // },
+  // {
+  //   "type":"web_url",
+  //   "title":"View Website",
+  //   "url":"https://aisflat439.github.io/"
+  // }
