@@ -13,7 +13,7 @@ const image             = require('./photoMessageObjects.js');
 
 const token = process.env.FACEBOOK_AISFLATBIOBOT_VERIFY_TOKEN
 const access = process.env.FACEBOOK_AISFLATBIOBOT_ACCESS_TOKEN
-const phone_number = process.env.PHONE_NUMBERx
+const phone_number = process.env.PHONE_NUMBER
 const SERVER_URL = process.env.SERVER_URL
 
 app.set('port', (process.env.PORT || 5000))
@@ -456,7 +456,7 @@ function setPersitentMenu() {
       if (error) {
         console.log('error with persistent menu', error);
       } else if (response.body.error) {
-        console.log('error with body persistent menu', error);
+        console.log('error with body persistent menu', response.body.error);
       }
     });
   }
