@@ -45,6 +45,8 @@ app.post('/webhook', function (req, res) {
   // Make sure this is a page subscription
   if (data.object === 'page') {
 
+    // set welcome page
+    setGetStartedButton();
     // setting persistent menu
     setPersitentMenu();
 
@@ -445,6 +447,34 @@ function setPersitentMenu() {
         console.log('error with persistent menu', error);
       } else if (response.body.error) {
         console.log('error with body persistent menu', response.body.error);
+      }
+    });
+  }
+
+function setGetStartedButton() {
+  request({
+    url: 'https://graph.facebook.com/v2.6/me/thread_settings',
+    qs: { access_token: access },
+    method: 'POST',
+    json: {
+      setting_type : "call_to_actions",
+      thread_state : "new_thread",
+      call_to_actions:[
+        {
+          "type":"postback",
+          "title":"Help",
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
+        }
+      ]
+    }
+  }, function(error, response, body) {
+      console.log("------------------------");
+      console.log("get started menu response");
+      console.log("------------------------");
+      if (error) {
+        console.log('error with get started menu', error);
+      } else if (response.body.error) {
+        console.log('error with body get started menu', response.body.error);
       }
     });
   }
